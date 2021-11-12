@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-place initialMarking="1" invariant="&lt; inf" name="DronePath_Set"/>
+  <net active="true" id="TAPN1" type="P/T net">
+    <place displayName="true" id="DronePath_Set" initialMarking="1" invariant="&lt; inf" name="DronePath_Set" nameOffsetX="39" nameOffsetY="-8" positionX="75" positionY="75"/>
+    <place displayName="true" id="Images_CapturedAndRecorded" initialMarking="0" invariant="&lt; inf" name="Images_CapturedAndRecorded" nameOffsetX="81" nameOffsetY="-17" positionX="315" positionY="105"/>
+    <place displayName="true" id="HighResolutionMap_Produced" initialMarking="0" invariant="&lt; inf" name="HighResolutionMap_Produced" nameOffsetX="79" nameOffsetY="-12" positionX="540" positionY="75"/>
+    <place displayName="true" id="PlantsHealth_Examined" initialMarking="0" invariant="&lt; inf" name="PlantsHealth_Examined" nameOffsetX="55" nameOffsetY="-9" positionX="765" positionY="105"/>
+    <place displayName="true" id="PlantAndSoilSample_Taken" initialMarking="0" invariant="&lt; inf" name="PlantAndSoilSample_Taken" nameOffsetX="83" nameOffsetY="65" positionX="765" positionY="315"/>
+    <place displayName="true" id="Sample_Analyzed" initialMarking="0" invariant="&lt; inf" name="Sample_Analyzed" nameOffsetX="55" nameOffsetY="62" positionX="540" positionY="270"/>
+    <place displayName="true" id="AnalyzedInfo_Forwarded" initialMarking="0" invariant="&lt; inf" name="AnalyzedInfo_Forwarded" nameOffsetX="71" nameOffsetY="54" positionX="315" positionY="315"/>
+    <place displayName="true" id="Crops_Treated_Accordingly" initialMarking="0" invariant="&lt; inf" name="Crops_Treated_Accordingly" nameOffsetX="84" nameOffsetY="56" positionX="75" positionY="270"/>
+    <transition angle="0" displayName="true" id="T0" infiniteServer="false" name="T0" nameOffsetX="0" nameOffsetY="0" player="0" positionX="195" positionY="90" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="435" positionY="90" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T2" infiniteServer="false" name="T2" nameOffsetX="0" nameOffsetY="0" player="0" positionX="645" positionY="90" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="T3" infiniteServer="false" name="T3" nameOffsetX="0" nameOffsetY="0" player="0" positionX="765" positionY="210" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T4" infiniteServer="false" name="T4" nameOffsetX="0" nameOffsetY="0" player="0" positionX="645" positionY="285" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T5" infiniteServer="false" name="T5" nameOffsetX="0" nameOffsetY="0" player="0" positionX="435" positionY="285" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T6" infiniteServer="false" name="T6" nameOffsetX="0" nameOffsetY="0" player="0" positionX="195" positionY="285" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="DronePath_Set" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="104" yCoord="91"/>
+      <arcpath arcPointType="false" id="1" xCoord="205" yCoord="100"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T0" target="Images_CapturedAndRecorded" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="214" yCoord="105"/>
+      <arcpath arcPointType="false" id="1" xCoord="315" yCoord="118"/>
+    </arc>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Images_CapturedAndRecorded" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="344" yCoord="118"/>
+      <arcpath arcPointType="false" id="1" xCoord="444" yCoord="110"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="HighResolutionMap_Produced" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="454" yCoord="105"/>
+      <arcpath arcPointType="false" id="1" xCoord="540" yCoord="92"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="HighResolutionMap_Produced" target="T2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="569" yCoord="91"/>
+      <arcpath arcPointType="false" id="1" xCoord="655" yCoord="100"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="PlantsHealth_Examined" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="664" yCoord="105"/>
+      <arcpath arcPointType="false" id="1" xCoord="765" yCoord="118"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="PlantsHealth_Examined" target="T3" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="780" yCoord="134"/>
+      <arcpath arcPointType="false" id="1" xCoord="784" yCoord="220"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="PlantAndSoilSample_Taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="779" yCoord="229"/>
+      <arcpath arcPointType="false" id="1" xCoord="779" yCoord="315"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="PlantAndSoilSample_Taken" target="T4" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="765" yCoord="326"/>
+      <arcpath arcPointType="false" id="1" xCoord="664" yCoord="305"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T4" target="Sample_Analyzed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="654" yCoord="300"/>
+      <arcpath arcPointType="false" id="1" xCoord="569" yCoord="287"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sample_Analyzed" target="T5" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="540" yCoord="286"/>
+      <arcpath arcPointType="false" id="1" xCoord="455" yCoord="295"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T5" target="AnalyzedInfo_Forwarded" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="444" yCoord="300"/>
+      <arcpath arcPointType="false" id="1" xCoord="344" yCoord="326"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="AnalyzedInfo_Forwarded" target="T6" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="315" yCoord="326"/>
+      <arcpath arcPointType="false" id="1" xCoord="214" yCoord="305"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T6" target="Crops_Treated_Accordingly" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="204" yCoord="300"/>
+      <arcpath arcPointType="false" id="1" xCoord="104" yCoord="286"/>
+    </arc>
+  </net>
+  <k-bound bound="3"/>
+  <feature isGame="true" isTimed="true"/>
+</pnml>
