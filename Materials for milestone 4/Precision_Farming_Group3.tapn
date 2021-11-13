@@ -1,68 +1,3 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
-  <constant name="MessageInterval" value="5"/>
-  <constant name="ApprovedChemicalLevel" value="10"/>
-  <net active="true" id="Monitored_Drone" type="P/T net"/>
-  <net active="true" id="Multiple_Drones" type="P/T net">
-    <place displayName="true" id="Drone1_Path_Ready" initialMarking="1" invariant="&lt; inf" name="Drone1_Path_Ready" nameOffsetX="74" nameOffsetY="62" positionX="210" positionY="195"/>
-    <place displayName="true" id="Flight_mode" initialMarking="0" invariant="&lt; inf" name="Flight_mode" nameOffsetX="9" nameOffsetY="0" positionX="570" positionY="210"/>
-    <place displayName="true" id="Weed_Detection" initialMarking="0" invariant="&lt; inf" name="Weed_Detection" nameOffsetX="66" nameOffsetY="-6" positionX="855" positionY="195"/>
-    <place displayName="true" id="Drone2_get_weedPath" initialMarking="0" invariant="&lt; inf" name="Drone2_get_weedPath" nameOffsetX="70" nameOffsetY="41" positionX="1110" positionY="360"/>
-    <place displayName="true" id="Weed_Removed" initialMarking="0" invariant="&lt; inf" name="Weed_Removed" nameOffsetX="51" nameOffsetY="-4" positionX="735" positionY="375"/>
-    <place displayName="true" id="Recharge_station" initialMarking="0" invariant="&lt; inf" name="Recharge_station" nameOffsetX="67" nameOffsetY="43" positionX="435" positionY="390"/>
-    <transition angle="0" displayName="true" id="Start_Flight" infiniteServer="false" name="Start_Flight" nameOffsetX="52" nameOffsetY="-3" player="0" positionX="435" positionY="210" priority="0" urgent="false"/>
-    <transition angle="0" displayName="true" id="Detect_Weed" infiniteServer="false" name="Detect_Weed" nameOffsetX="53" nameOffsetY="-4" player="0" positionX="690" positionY="210" priority="0" urgent="false"/>
-    <transition angle="0" displayName="true" id="Send_Message_Weed_Sprayer_Drone" infiniteServer="false" name="Send_Message_Weed_Sprayer_Drone" nameOffsetX="100" nameOffsetY="0" player="0" positionX="1110" positionY="195" priority="0" urgent="false"/>
-    <transition angle="0" displayName="true" id="Spray_weed" infiniteServer="false" name="Spray_weed" nameOffsetX="34" nameOffsetY="-1" player="0" positionX="900" positionY="360" priority="0" urgent="false"/>
-    <transition angle="0" displayName="true" id="Recharge" infiniteServer="false" name="Recharge" nameOffsetX="0" nameOffsetY="0" player="0" positionX="210" positionY="390" priority="0" urgent="false"/>
-    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Start_Flight" target="Flight_mode" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="454" yCoord="225"/>
-      <arcpath arcPointType="false" id="1" xCoord="570" yCoord="225"/>
-    </arc>
-    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Flight_mode" target="Detect_Weed" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="599" yCoord="224"/>
-      <arcpath arcPointType="false" id="1" xCoord="700" yCoord="220"/>
-    </arc>
-    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Detect_Weed" target="Weed_Detection" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="709" yCoord="225"/>
-      <arcpath arcPointType="false" id="1" xCoord="855" yCoord="211"/>
-    </arc>
-    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Drone2_get_weedPath" target="Spray_weed" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1110" yCoord="375"/>
-      <arcpath arcPointType="false" id="1" xCoord="919" yCoord="380"/>
-    </arc>
-    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Spray_weed" target="Weed_Removed" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="909" yCoord="375"/>
-      <arcpath arcPointType="false" id="1" xCoord="764" yCoord="388"/>
-    </arc>
-    <arc id="A8" inscription="[3,5]" nameOffsetX="-2" nameOffsetY="3" source="Drone1_Path_Ready" target="Recharge" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="225" yCoord="225"/>
-      <arcpath arcPointType="false" id="1" xCoord="225" yCoord="390"/>
-    </arc>
-    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Recharge" target="Recharge_station" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="229" yCoord="405"/>
-      <arcpath arcPointType="false" id="1" xCoord="435" yCoord="405"/>
-    </arc>
-    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Recharge_station" target="Start_Flight" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="450" yCoord="390"/>
-      <arcpath arcPointType="false" id="1" xCoord="450" yCoord="240"/>
-    </arc>
-    <arc id="A11" inscription="[4,5]:1" nameOffsetX="0" nameOffsetY="0" source="Send_Message_Weed_Sprayer_Drone" target="Drone2_get_weedPath" type="transport" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1125" yCoord="225"/>
-      <arcpath arcPointType="false" id="1" xCoord="1125" yCoord="360"/>
-    </arc>
-    <arc id="A12" inscription="[4,5]:1" nameOffsetX="0" nameOffsetY="0" source="Weed_Detection" target="Send_Message_Weed_Sprayer_Drone" type="transport" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="884" yCoord="209"/>
-      <arcpath arcPointType="false" id="1" xCoord="1120" yCoord="201"/>
-    </arc>
-  </net>
-  <net active="true" id="Autonomous_Driving" type="P/T net"/>
-  <net active="true" id="External_System" type="P/T net"/>
-  <k-bound bound="3"/>
-  <feature isGame="true" isTimed="true"/>
-</pnml>
-=======
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
   <shared-place initialMarking="0" invariant="&lt; inf" name="DronePath_Set"/>
@@ -263,4 +198,3 @@
   <k-bound bound="3"/>
   <feature isGame="false" isTimed="true"/>
 </pnml>
->>>>>>> 8f1b95515f8ba2d518439fbe4f42f69facda4a77
