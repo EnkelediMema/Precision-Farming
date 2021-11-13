@@ -3,7 +3,77 @@
   <net active="true" id="Monitored_Drone" type="P/T net"/>
   <net active="true" id="Multiple_Drones" type="P/T net"/>
   <net active="true" id="Autonomous_Driving" type="P/T net"/>
-  <net active="true" id="External_System" type="P/T net"/>
+  <net active="true" id="External_System" type="P/T net">
+    <place displayName="true" id="Charging_ON" initialMarking="1" invariant="&lt; inf" name="Charging_ON" nameOffsetX="0" nameOffsetY="0" positionX="75" positionY="150"/>
+    <place displayName="true" id="Request_Is_waiting" initialMarking="0" invariant="&lt; inf" name="Request_Is_waiting" nameOffsetX="0" nameOffsetY="0" positionX="405" positionY="75"/>
+    <place displayName="true" id="Wait_For_Charging_Slot" initialMarking="0" invariant="&lt; inf" name="Wait_For_Charging_Slot" nameOffsetX="0" nameOffsetY="0" positionX="645" positionY="120"/>
+    <place displayName="true" id="Station_Available" initialMarking="1" invariant="&lt; inf" name="Station_Available" nameOffsetX="0" nameOffsetY="0" positionX="240" positionY="255"/>
+    <place displayName="true" id="Update_Queue" initialMarking="0" invariant="&lt; inf" name="Update_Queue" nameOffsetX="0" nameOffsetY="0" positionX="1170" positionY="285"/>
+    <place displayName="true" id="Charging_Slot_Available" initialMarking="2" invariant="&lt; inf" name="Charging_Slot_Available" nameOffsetX="0" nameOffsetY="0" positionX="675" positionY="255"/>
+    <place displayName="true" id="Charging_In_Progress" initialMarking="0" invariant="&lt; inf" name="Charging_In_Progress" nameOffsetX="0" nameOffsetY="0" positionX="1005" positionY="135"/>
+    <transition angle="0" displayName="true" id="Drone_Request_Arrives" infiniteServer="false" name="Drone_Request_Arrives" nameOffsetX="0" nameOffsetY="0" player="0" positionX="240" positionY="75" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Allocate_Charging_Station" infiniteServer="false" name="Allocate_Charging_Station" nameOffsetX="0" nameOffsetY="0" player="0" positionX="480" positionY="180" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Allocate_Slot" infiniteServer="false" name="Allocate_Slot" nameOffsetX="0" nameOffsetY="0" player="0" positionX="825" positionY="135" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Charging_Done" infiniteServer="false" name="Charging_Done" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1170" positionY="135" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Queue_Updated" infiniteServer="false" name="Queue_Updated" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1170" positionY="390" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[0,3]" nameOffsetX="0" nameOffsetY="0" source="Charging_ON" target="Drone_Request_Arrives" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="103" yCoord="158"/>
+      <arcpath arcPointType="false" id="1" xCoord="249" yCoord="90"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Drone_Request_Arrives" target="Request_Is_waiting" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="259" yCoord="90"/>
+      <arcpath arcPointType="false" id="1" xCoord="405" yCoord="90"/>
+    </arc>
+    <arc id="A2" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Station_Available" target="Allocate_Charging_Station" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="269" yCoord="265"/>
+      <arcpath arcPointType="false" id="1" xCoord="489" yCoord="200"/>
+    </arc>
+    <arc id="A3" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Request_Is_waiting" target="Allocate_Charging_Station" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="428" yCoord="102"/>
+      <arcpath arcPointType="false" id="1" xCoord="490" yCoord="190"/>
+    </arc>
+    <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Allocate_Charging_Station" target="Wait_For_Charging_Slot" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="499" yCoord="195"/>
+      <arcpath arcPointType="false" id="1" xCoord="645" yCoord="140"/>
+    </arc>
+    <arc id="A5" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Wait_For_Charging_Slot" target="Allocate_Slot" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="674" yCoord="135"/>
+      <arcpath arcPointType="false" id="1" xCoord="835" yCoord="145"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Charging_Slot_Available" target="Allocate_Slot" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="701" yCoord="260"/>
+      <arcpath arcPointType="false" id="1" xCoord="834" yCoord="155"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Allocate_Slot" target="Charging_In_Progress" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="844" yCoord="150"/>
+      <arcpath arcPointType="false" id="1" xCoord="1005" yCoord="150"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Charging_In_Progress" target="Charging_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1035" yCoord="150"/>
+      <arcpath arcPointType="false" id="1" xCoord="1179" yCoord="150"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Charging_Done" target="Update_Queue" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1185" yCoord="165"/>
+      <arcpath arcPointType="false" id="1" xCoord="1185" yCoord="285"/>
+    </arc>
+    <arc id="A10" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Update_Queue" target="Queue_Updated" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1184" yCoord="314"/>
+      <arcpath arcPointType="false" id="1" xCoord="1184" yCoord="399"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Queue_Updated" target="Charging_Slot_Available" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1184" yCoord="409"/>
+      <arcpath arcPointType="false" id="1" xCoord="1185" yCoord="475"/>
+      <arcpath arcPointType="false" id="2" xCoord="699" yCoord="470"/>
+      <arcpath arcPointType="false" id="3" xCoord="690" yCoord="284"/>
+    </arc>
+    <arc id="A12" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Queue_Updated" target="Station_Available" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1184" yCoord="409"/>
+      <arcpath arcPointType="false" id="1" xCoord="1186" yCoord="521"/>
+      <arcpath arcPointType="false" id="2" xCoord="245" yCoord="514"/>
+      <arcpath arcPointType="false" id="3" xCoord="254" yCoord="284"/>
+    </arc>
+  </net>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="true" hashTableSize="null" inclusionPlaces="*NONE*" name="Charging Done" overApproximation="true" pTrie="true" query="EF External_System.Charging_In_Progress = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
   <k-bound bound="3"/>
-  <feature isGame="true" isTimed="true"/>
+  <feature isGame="false" isTimed="true"/>
 </pnml>
