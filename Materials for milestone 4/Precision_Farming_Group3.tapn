@@ -26,32 +26,32 @@
     <transition angle="0" displayName="true" id="T8" infiniteServer="false" name="T8" nameOffsetX="0" nameOffsetY="0" player="0" positionX="180" positionY="405" priority="0" urgent="false"/>
     <transition angle="0" displayName="true" id="System_Reset" infiniteServer="false" name="System_Reset" nameOffsetX="0" nameOffsetY="0" player="0" positionX="555" positionY="105" priority="0" urgent="false"/>
     <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Start" target="T0" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="196" yCoord="44"/>
-      <arcpath arcPointType="false" id="1" xCoord="199" yCoord="70"/>
+      <arcpath arcPointType="false" id="0" xCoord="194" yCoord="44"/>
+      <arcpath arcPointType="false" id="1" xCoord="194" yCoord="69"/>
     </arc>
     <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T0" target="DronePath_Given" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="194" yCoord="79"/>
       <arcpath arcPointType="false" id="1" xCoord="194" yCoord="105"/>
     </arc>
     <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="DronePath_Given" target="T1" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="196" yCoord="134"/>
-      <arcpath arcPointType="false" id="1" xCoord="199" yCoord="175"/>
+      <arcpath arcPointType="false" id="0" xCoord="194" yCoord="134"/>
+      <arcpath arcPointType="false" id="1" xCoord="194" yCoord="174"/>
     </arc>
     <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="Images_CapturedAndRecorded" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="194" yCoord="184"/>
       <arcpath arcPointType="false" id="1" xCoord="194" yCoord="225"/>
     </arc>
     <arc id="A4" inscription="[3,inf)" nameOffsetX="2" nameOffsetY="-12" source="Images_CapturedAndRecorded" target="T2" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="209" yCoord="240"/>
-      <arcpath arcPointType="false" id="1" xCoord="339" yCoord="245"/>
+      <arcpath arcPointType="false" id="0" xCoord="210" yCoord="240"/>
+      <arcpath arcPointType="false" id="1" xCoord="339" yCoord="240"/>
     </arc>
     <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="HighResolutionMap_Produced" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="349" yCoord="240"/>
       <arcpath arcPointType="false" id="1" xCoord="480" yCoord="240"/>
     </arc>
     <arc id="A6" inscription="[7,inf)" nameOffsetX="-2" nameOffsetY="-6" source="PlantsHealth_Examination" target="T4" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="839" yCoord="239"/>
-      <arcpath arcPointType="false" id="1" xCoord="955" yCoord="235"/>
+      <arcpath arcPointType="false" id="0" xCoord="840" yCoord="240"/>
+      <arcpath arcPointType="false" id="1" xCoord="954" yCoord="240"/>
     </arc>
     <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T4" target="UnHealthyPlants_Found" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="960" yCoord="255"/>
@@ -63,7 +63,7 @@
     </arc>
     <arc id="A9" inscription="[20,inf)" nameOffsetX="-13" nameOffsetY="-13" source="Plants_are_Healthy" target="System_Reset" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="945" yCoord="120"/>
-      <arcpath arcPointType="false" id="1" xCoord="574" yCoord="125"/>
+      <arcpath arcPointType="false" id="1" xCoord="574" yCoord="120"/>
     </arc>
     <arc id="A10" inscription="1" nameOffsetX="0" nameOffsetY="0" source="System_Reset" target="DronePath_Given" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="564" yCoord="120"/>
@@ -71,7 +71,7 @@
     </arc>
     <arc id="A11" inscription="[5,inf)" nameOffsetX="6" nameOffsetY="-17" source="UnHealthyPlants_Found" target="T5" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="945" yCoord="420"/>
-      <arcpath arcPointType="false" id="1" xCoord="829" yCoord="425"/>
+      <arcpath arcPointType="false" id="1" xCoord="829" yCoord="420"/>
     </arc>
     <arc id="A12" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T5" target="PlantAndSoilSample_Taken" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="819" yCoord="420"/>
@@ -79,7 +79,7 @@
     </arc>
     <arc id="A13" inscription="[0,inf)" nameOffsetX="20" nameOffsetY="-16" source="Sample_Analyzed" target="T7" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="480" yCoord="420"/>
-      <arcpath arcPointType="false" id="1" xCoord="409" yCoord="425"/>
+      <arcpath arcPointType="false" id="1" xCoord="409" yCoord="420"/>
     </arc>
     <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T7" target="AnalyzedInfo_Forwarded" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="399" yCoord="420"/>
@@ -87,27 +87,27 @@
     </arc>
     <arc id="A15" inscription="[0,inf)" nameOffsetX="17" nameOffsetY="22" source="AnalyzedInfo_Forwarded" target="T8" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="300" yCoord="420"/>
-      <arcpath arcPointType="false" id="1" xCoord="199" yCoord="425"/>
+      <arcpath arcPointType="false" id="1" xCoord="199" yCoord="420"/>
     </arc>
     <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T8" target="CropsTreated_Accordingly" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="195" yCoord="435"/>
       <arcpath arcPointType="false" id="1" xCoord="195" yCoord="465"/>
     </arc>
+    <arc id="A18" inscription="[7,inf):1" nameOffsetX="10" nameOffsetY="26" source="HighResolutionMap_Produced" target="T3" type="transport" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="509" yCoord="239"/>
+      <arcpath arcPointType="false" id="1" xCoord="655" yCoord="239"/>
+    </arc>
     <arc id="A17" inscription="[7,inf):1" nameOffsetX="0" nameOffsetY="0" source="T3" target="PlantsHealth_Examination" type="transport" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="665" yCoord="239"/>
       <arcpath arcPointType="false" id="1" xCoord="810" yCoord="239"/>
     </arc>
-    <arc id="A18" inscription="[7,inf):1" nameOffsetX="10" nameOffsetY="26" source="HighResolutionMap_Produced" target="T3" type="transport" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="509" yCoord="239"/>
-      <arcpath arcPointType="false" id="1" xCoord="655" yCoord="234"/>
+    <arc id="A20" inscription="[10,inf):1" nameOffsetX="30" nameOffsetY="32" source="PlantAndSoilSample_Taken" target="T6" type="transport" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="675" yCoord="420"/>
+      <arcpath arcPointType="false" id="1" xCoord="604" yCoord="420"/>
     </arc>
     <arc id="A19" inscription="[10,inf):1" nameOffsetX="0" nameOffsetY="0" source="T6" target="Sample_Analyzed" type="transport" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="594" yCoord="420"/>
       <arcpath arcPointType="false" id="1" xCoord="510" yCoord="420"/>
-    </arc>
-    <arc id="A20" inscription="[10,inf):1" nameOffsetX="30" nameOffsetY="32" source="PlantAndSoilSample_Taken" target="T6" type="transport" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="675" yCoord="420"/>
-      <arcpath arcPointType="false" id="1" xCoord="604" yCoord="425"/>
     </arc>
   </net>
   <net active="true" id="Multiple_Drones" type="P/T net">
@@ -164,52 +164,60 @@
     </arc>
   </net>
   <net active="true" id="Autonomous_Driving" type="P/T net">
-    <place displayName="true" id="routing_data" initialMarking="0" invariant="&lt; inf" name="routing_data" nameOffsetX="0" nameOffsetY="0" positionX="540" positionY="270"/>
-    <place displayName="true" id="farmin_op" initialMarking="0" invariant="&lt; inf" name="farmin_op" nameOffsetX="0" nameOffsetY="0" positionX="255" positionY="195"/>
-    <place displayName="true" id="destination" initialMarking="0" invariant="&lt; inf" name="destination" nameOffsetX="0" nameOffsetY="0" positionX="240" positionY="315"/>
-    <place displayName="true" id="stop" initialMarking="0" invariant="&lt; inf" name="stop" nameOffsetX="0" nameOffsetY="0" positionX="435" positionY="345"/>
-    <place displayName="true" id="safe" initialMarking="0" invariant="&lt; inf" name="safe" nameOffsetX="0" nameOffsetY="0" positionX="570" positionY="180"/>
-    <place displayName="true" id="no_obstacle" initialMarking="0" invariant="&lt; inf" name="no_obstacle" nameOffsetX="6" nameOffsetY="44" positionX="870" positionY="225"/>
-    <place displayName="true" id="obstacle" initialMarking="0" invariant="&lt; inf" name="obstacle" nameOffsetX="0" nameOffsetY="0" positionX="690" positionY="240"/>
-    <transition angle="0" displayName="true" id="obstacle_detected" infiniteServer="false" name="obstacle_detected" nameOffsetX="0" nameOffsetY="0" player="0" positionX="780" positionY="180" priority="0" urgent="false"/>
-    <transition angle="0" displayName="true" id="driving" infiniteServer="false" name="driving" nameOffsetX="0" nameOffsetY="0" player="0" positionX="375" positionY="195" priority="0" urgent="false"/>
-    <transition angle="0" displayName="true" id="reaching_back" infiniteServer="false" name="reaching_back" nameOffsetX="0" nameOffsetY="0" player="0" positionX="165" positionY="255" priority="0" urgent="false"/>
-    <transition angle="0" displayName="true" id="stopping_operation" infiniteServer="false" name="stopping_operation" nameOffsetX="45" nameOffsetY="56" player="0" positionX="330" positionY="345" priority="0" urgent="false"/>
-    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="no_obstacle" target="obstacle_detected" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="871" yCoord="233"/>
-      <arcpath arcPointType="false" id="1" xCoord="799" yCoord="195"/>
+    <place displayName="true" id="manual_operation" initialMarking="0" invariant="&lt; inf" name="manual_operation" nameOffsetX="0" nameOffsetY="0" positionX="1080" positionY="240"/>
+    <place displayName="true" id="initiaize_comm_data" initialMarking="0" invariant="&lt; inf" name="initiaize_comm_data" nameOffsetX="0" nameOffsetY="0" positionX="1155" positionY="510"/>
+    <place displayName="true" id="get_path_data" initialMarking="0" invariant="&lt; inf" name="get_path_data" nameOffsetX="57" nameOffsetY="52" positionX="840" positionY="390"/>
+    <place displayName="true" id="obstacle_detected" initialMarking="0" invariant="&lt; inf" name="obstacle_detected" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="285"/>
+    <place displayName="true" id="obstacle_avoided" initialMarking="0" invariant="&lt; inf" name="obstacle_avoided" nameOffsetX="37" nameOffsetY="-12" positionX="345" positionY="330"/>
+    <place displayName="true" id="rerouted_path" initialMarking="0" invariant="&lt; inf" name="rerouted_path" nameOffsetX="25" nameOffsetY="47" positionX="495" positionY="495"/>
+    <place displayName="true" id="completed" initialMarking="0" invariant="&lt; inf" name="completed" nameOffsetX="0" nameOffsetY="0" positionX="45" positionY="405"/>
+    <transition angle="0" displayName="true" id="enabling_autonomous_driving" infiniteServer="false" name="enabling_autonomous_driving" nameOffsetX="56" nameOffsetY="-10" player="0" positionX="975" positionY="390" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="path_generation" infiniteServer="false" name="path_generation" nameOffsetX="52" nameOffsetY="54" player="0" positionX="690" positionY="390" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="avoidance_operation" infiniteServer="false" name="avoidance_operation" nameOffsetX="56" nameOffsetY="41" player="0" positionX="480" positionY="360" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="path_allocation" infiniteServer="false" name="path_allocation" nameOffsetX="47" nameOffsetY="-8" player="0" positionX="210" positionY="405" priority="0" urgent="false"/>
+    <arc id="A0" inscription="1" nameOffsetX="0" nameOffsetY="0" source="path_allocation" target="completed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="219" yCoord="420"/>
+      <arcpath arcPointType="false" id="1" xCoord="75" yCoord="420"/>
     </arc>
-    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="obstacle_detected" target="obstacle" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="789" yCoord="195"/>
-      <arcpath arcPointType="false" id="1" xCoord="717" yCoord="246"/>
+    <arc id="A1" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="obstacle_avoided" target="path_allocation" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="346" yCoord="352"/>
+      <arcpath arcPointType="false" id="1" xCoord="230" yCoord="417"/>
     </arc>
-    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="safe" target="driving" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="570" yCoord="195"/>
-      <arcpath arcPointType="false" id="1" xCoord="395" yCoord="205"/>
+    <arc id="A2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="avoidance_operation" target="obstacle_avoided" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="489" yCoord="375"/>
+      <arcpath arcPointType="false" id="1" xCoord="374" yCoord="348"/>
     </arc>
-    <arc id="A3" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="routing_data" target="driving" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="541" yCoord="279"/>
-      <arcpath arcPointType="false" id="1" xCoord="394" yCoord="215"/>
+    <arc id="A3" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="rerouted_path" target="path_allocation" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="495" yCoord="505"/>
+      <arcpath arcPointType="false" id="1" xCoord="229" yCoord="429"/>
     </arc>
-    <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="driving" target="farmin_op" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="384" yCoord="210"/>
-      <arcpath arcPointType="false" id="1" xCoord="285" yCoord="210"/>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="obstacle_detected" target="avoidance_operation" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="617" yCoord="307"/>
+      <arcpath arcPointType="false" id="1" xCoord="499" yCoord="380"/>
     </arc>
-    <arc id="A5" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="farmin_op" target="reaching_back" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="257" yCoord="218"/>
-      <arcpath arcPointType="false" id="1" xCoord="185" yCoord="265"/>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="path_generation" target="obstacle_detected" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="699" yCoord="405"/>
+      <arcpath arcPointType="false" id="1" xCoord="638" yCoord="312"/>
     </arc>
-    <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="reaching_back" target="destination" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="184" yCoord="275"/>
-      <arcpath arcPointType="false" id="1" xCoord="243" yCoord="320"/>
+    <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="path_generation" target="rerouted_path" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="699" yCoord="405"/>
+      <arcpath arcPointType="false" id="1" xCoord="523" yCoord="502"/>
     </arc>
-    <arc id="A7" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="destination" target="stopping_operation" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="269" yCoord="335"/>
-      <arcpath arcPointType="false" id="1" xCoord="339" yCoord="360"/>
+    <arc id="A7" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="get_path_data" target="path_generation" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="840" yCoord="404"/>
+      <arcpath arcPointType="false" id="1" xCoord="710" yCoord="400"/>
     </arc>
-    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="stopping_operation" target="stop" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="349" yCoord="360"/>
-      <arcpath arcPointType="false" id="1" xCoord="435" yCoord="360"/>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enabling_autonomous_driving" target="get_path_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="984" yCoord="405"/>
+      <arcpath arcPointType="false" id="1" xCoord="870" yCoord="405"/>
+    </arc>
+    <arc id="A9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="manual_operation" target="enabling_autonomous_driving" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1086" yCoord="267"/>
+      <arcpath arcPointType="false" id="1" xCoord="995" yCoord="396"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="initiaize_comm_data" target="enabling_autonomous_driving" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1157" yCoord="516"/>
+      <arcpath arcPointType="false" id="1" xCoord="994" yCoord="414"/>
     </arc>
   </net>
   <net active="true" id="External_System" type="P/T net">
@@ -226,60 +234,60 @@
     <transition angle="0" displayName="true" id="Charging_Done" infiniteServer="false" name="Charging_Done" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1170" positionY="135" priority="0" urgent="false"/>
     <transition angle="90" displayName="true" id="Queue_Updated" infiniteServer="false" name="Queue_Updated" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1170" positionY="390" priority="0" urgent="false"/>
     <arc id="A0" inscription="[0,3]" nameOffsetX="-1" nameOffsetY="0" source="Charging_ON" target="Drone_Request_Arrives" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="103" yCoord="158"/>
-      <arcpath arcPointType="false" id="1" xCoord="249" yCoord="90"/>
+      <arcpath arcPointType="false" id="0" xCoord="107" yCoord="162"/>
+      <arcpath arcPointType="false" id="1" xCoord="253" yCoord="94"/>
     </arc>
     <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Drone_Request_Arrives" target="Request_Is_waiting" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="259" yCoord="90"/>
-      <arcpath arcPointType="false" id="1" xCoord="405" yCoord="90"/>
+      <arcpath arcPointType="false" id="0" xCoord="263" yCoord="94"/>
+      <arcpath arcPointType="false" id="1" xCoord="409" yCoord="94"/>
     </arc>
     <arc id="A2" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Station_Available" target="Allocate_Charging_Station" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="269" yCoord="265"/>
-      <arcpath arcPointType="false" id="1" xCoord="489" yCoord="200"/>
+      <arcpath arcPointType="false" id="0" xCoord="273" yCoord="269"/>
+      <arcpath arcPointType="false" id="1" xCoord="493" yCoord="204"/>
     </arc>
     <arc id="A3" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Request_Is_waiting" target="Allocate_Charging_Station" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="428" yCoord="102"/>
-      <arcpath arcPointType="false" id="1" xCoord="490" yCoord="190"/>
+      <arcpath arcPointType="false" id="0" xCoord="432" yCoord="106"/>
+      <arcpath arcPointType="false" id="1" xCoord="494" yCoord="194"/>
     </arc>
     <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Allocate_Charging_Station" target="Wait_For_Charging_Slot" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="499" yCoord="195"/>
-      <arcpath arcPointType="false" id="1" xCoord="645" yCoord="140"/>
+      <arcpath arcPointType="false" id="0" xCoord="503" yCoord="199"/>
+      <arcpath arcPointType="false" id="1" xCoord="649" yCoord="144"/>
     </arc>
     <arc id="A5" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Wait_For_Charging_Slot" target="Allocate_Slot" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="674" yCoord="135"/>
-      <arcpath arcPointType="false" id="1" xCoord="835" yCoord="145"/>
+      <arcpath arcPointType="false" id="0" xCoord="678" yCoord="139"/>
+      <arcpath arcPointType="false" id="1" xCoord="839" yCoord="149"/>
     </arc>
     <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Charging_Slot_Available" target="Allocate_Slot" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="701" yCoord="260"/>
-      <arcpath arcPointType="false" id="1" xCoord="834" yCoord="155"/>
+      <arcpath arcPointType="false" id="0" xCoord="705" yCoord="264"/>
+      <arcpath arcPointType="false" id="1" xCoord="838" yCoord="159"/>
     </arc>
     <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Allocate_Slot" target="Charging_In_Progress" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="844" yCoord="150"/>
-      <arcpath arcPointType="false" id="1" xCoord="1005" yCoord="150"/>
+      <arcpath arcPointType="false" id="0" xCoord="848" yCoord="154"/>
+      <arcpath arcPointType="false" id="1" xCoord="1009" yCoord="154"/>
     </arc>
     <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Charging_In_Progress" target="Charging_Done" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1035" yCoord="150"/>
-      <arcpath arcPointType="false" id="1" xCoord="1179" yCoord="150"/>
+      <arcpath arcPointType="false" id="0" xCoord="1039" yCoord="154"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="154"/>
     </arc>
     <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Charging_Done" target="Update_Queue" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1185" yCoord="165"/>
-      <arcpath arcPointType="false" id="1" xCoord="1185" yCoord="285"/>
+      <arcpath arcPointType="false" id="0" xCoord="1189" yCoord="169"/>
+      <arcpath arcPointType="false" id="1" xCoord="1189" yCoord="289"/>
     </arc>
     <arc id="A10" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Update_Queue" target="Queue_Updated" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1184" yCoord="314"/>
-      <arcpath arcPointType="false" id="1" xCoord="1184" yCoord="399"/>
+      <arcpath arcPointType="false" id="0" xCoord="1188" yCoord="318"/>
+      <arcpath arcPointType="false" id="1" xCoord="1188" yCoord="403"/>
     </arc>
     <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Queue_Updated" target="Charging_Slot_Available" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1184" yCoord="409"/>
-      <arcpath arcPointType="false" id="1" xCoord="1205" yCoord="495"/>
-      <arcpath arcPointType="false" id="2" xCoord="719" yCoord="490"/>
-      <arcpath arcPointType="false" id="3" xCoord="691" yCoord="284"/>
+      <arcpath arcPointType="false" id="0" xCoord="1188" yCoord="413"/>
+      <arcpath arcPointType="false" id="1" xCoord="1209" yCoord="499"/>
+      <arcpath arcPointType="false" id="2" xCoord="723" yCoord="494"/>
+      <arcpath arcPointType="false" id="3" xCoord="695" yCoord="288"/>
     </arc>
     <arc id="A12" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Queue_Updated" target="Station_Available" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1184" yCoord="409"/>
-      <arcpath arcPointType="false" id="1" xCoord="1206" yCoord="541"/>
-      <arcpath arcPointType="false" id="2" xCoord="265" yCoord="534"/>
-      <arcpath arcPointType="false" id="3" xCoord="255" yCoord="284"/>
+      <arcpath arcPointType="false" id="0" xCoord="1188" yCoord="413"/>
+      <arcpath arcPointType="false" id="1" xCoord="1210" yCoord="545"/>
+      <arcpath arcPointType="false" id="2" xCoord="269" yCoord="538"/>
+      <arcpath arcPointType="false" id="3" xCoord="259" yCoord="288"/>
     </arc>
   </net>
   <net active="true" id="Communication" type="P/T net">
@@ -408,7 +416,7 @@
   </net>
   <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Charging Done" overApproximation="true" pTrie="true" query="EF External_System.Charging_In_Progress = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
   <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Overall_Process_Monitoring" overApproximation="true" pTrie="true" query="EF Communication.Overall_Process_Monitoring = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
-  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="false" hashTableSize="null" inclusionPlaces="*NONE*" name="CropsTreated_Accordingly" overApproximation="false" pTrie="true" query="EF deadlock" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="CropsTreated_Accordingly" overApproximation="false" pTrie="true" query="EF deadlock" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
   <k-bound bound="3"/>
   <feature isGame="false" isTimed="true"/>
 </pnml>
