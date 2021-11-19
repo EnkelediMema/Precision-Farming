@@ -111,18 +111,18 @@
     </arc>
   </net>
   <net active="true" id="Multiple_Drones" type="P/T net">
-    <place displayName="true" id="Weed_Detector_Drone_PathReady" initialMarking="1" invariant="&lt; inf" name="Weed_Detector_Drone_PathReady" nameOffsetX="97" nameOffsetY="0" positionX="210" positionY="210"/>
+    <place displayName="true" id="WeedDetector_Drone" initialMarking="1" invariant="&lt; inf" name="WeedDetector_Drone" nameOffsetX="97" nameOffsetY="0" positionX="210" positionY="210"/>
     <place displayName="true" id="Recharge_Station" initialMarking="0" invariant="&lt; inf" name="Recharge_Station" nameOffsetX="61" nameOffsetY="50" positionX="375" positionY="360"/>
-    <place displayName="true" id="Flight_Mode" initialMarking="0" invariant="&lt; inf" name="Flight_Mode" nameOffsetX="31" nameOffsetY="-1" positionX="525" positionY="210"/>
+    <place displayName="true" id="Flight_Mode" initialMarking="0" invariant="&lt; inf" name="Flight_Mode" nameOffsetX="31" nameOffsetY="-15" positionX="525" positionY="210"/>
     <place displayName="true" id="Weed_Detection" initialMarking="0" invariant="&lt; inf" name="Weed_Detection" nameOffsetX="45" nameOffsetY="-6" positionX="810" positionY="210"/>
     <place displayName="true" id="WeedSprayer_With_WeedPath" initialMarking="0" invariant="&lt;= 3" name="WeedSprayer_With_WeedPath" nameOffsetX="96" nameOffsetY="41" positionX="1005" positionY="345"/>
-    <place displayName="true" id="Weed_Removed" initialMarking="0" invariant="&lt; inf" name="Weed_Removed" nameOffsetX="44" nameOffsetY="0" positionX="690" positionY="345"/>
+    <place displayName="true" id="Weed_spray" initialMarking="0" invariant="&lt; inf" name="Weed_spray" nameOffsetX="44" nameOffsetY="0" positionX="690" positionY="345"/>
     <transition angle="0" displayName="true" id="Recharge" infiniteServer="false" name="Recharge" nameOffsetX="1" nameOffsetY="19" player="0" positionX="210" positionY="360" priority="0" urgent="false"/>
     <transition angle="0" displayName="true" id="Start_Flight" infiniteServer="false" name="Start_Flight" nameOffsetX="35" nameOffsetY="3" player="0" positionX="375" positionY="210" priority="0" urgent="false"/>
     <transition angle="0" displayName="true" id="Detect_Weed" infiniteServer="false" name="Detect_Weed" nameOffsetX="36" nameOffsetY="-2" player="0" positionX="675" positionY="210" priority="0" urgent="false"/>
-    <transition angle="0" displayName="true" id="Spray_Weed" infiniteServer="false" name="Spray_Weed" nameOffsetX="36" nameOffsetY="-2" player="0" positionX="795" positionY="345" priority="0" urgent="false"/>
-    <transition angle="0" displayName="true" id="Send_Message_Weed_Sprayer_Drone" infiniteServer="false" name="Send_Message_Weed_Sprayer_Drone" nameOffsetX="160" nameOffsetY="-1" player="0" positionX="1005" positionY="210" priority="0" urgent="false"/>
-    <arc id="A1" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Weed_Detector_Drone_PathReady" target="Recharge" type="timed" weight="1">
+    <transition angle="0" displayName="true" id="Reach_target" infiniteServer="false" name="Reach_target" nameOffsetX="36" nameOffsetY="-2" player="0" positionX="795" positionY="345" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Send_Map_WeedSprayer_Drone" infiniteServer="false" name="Send_Map_WeedSprayer_Drone" nameOffsetX="160" nameOffsetY="-1" player="0" positionX="1005" positionY="210" priority="0" urgent="false"/>
+    <arc id="A1" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="WeedDetector_Drone" target="Recharge" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="225" yCoord="240"/>
       <arcpath arcPointType="false" id="1" xCoord="225" yCoord="360"/>
     </arc>
@@ -146,19 +146,19 @@
       <arcpath arcPointType="false" id="0" xCoord="694" yCoord="225"/>
       <arcpath arcPointType="false" id="1" xCoord="810" yCoord="225"/>
     </arc>
-    <arc id="A9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="WeedSprayer_With_WeedPath" target="Spray_Weed" type="timed" weight="1">
+    <arc id="A9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="WeedSprayer_With_WeedPath" target="Reach_target" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="1005" yCoord="360"/>
       <arcpath arcPointType="false" id="1" xCoord="814" yCoord="360"/>
     </arc>
-    <arc id="A10" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Spray_Weed" target="Weed_Removed" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="804" yCoord="360"/>
-      <arcpath arcPointType="false" id="1" xCoord="720" yCoord="360"/>
+    <arc id="A10" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Reach_target" target="Weed_spray" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="805" yCoord="355"/>
+      <arcpath arcPointType="false" id="1" xCoord="719" yCoord="359"/>
     </arc>
-    <arc id="A11" inscription="[3,5]:1" nameOffsetX="0" nameOffsetY="0" source="Weed_Detection" target="Send_Message_Weed_Sprayer_Drone" type="transport" weight="1">
+    <arc id="A11" inscription="[3,5]:1" nameOffsetX="0" nameOffsetY="0" source="Weed_Detection" target="Send_Map_WeedSprayer_Drone" type="transport" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="840" yCoord="225"/>
       <arcpath arcPointType="false" id="1" xCoord="1014" yCoord="225"/>
     </arc>
-    <arc id="A8" inscription="[3,5]:1" nameOffsetX="0" nameOffsetY="0" source="Send_Message_Weed_Sprayer_Drone" target="WeedSprayer_With_WeedPath" type="transport" weight="1">
+    <arc id="A8" inscription="[3,5]:1" nameOffsetX="0" nameOffsetY="0" source="Send_Map_WeedSprayer_Drone" target="WeedSprayer_With_WeedPath" type="transport" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="1020" yCoord="240"/>
       <arcpath arcPointType="false" id="1" xCoord="1020" yCoord="345"/>
     </arc>
@@ -181,7 +181,7 @@
     </arc>
     <arc id="A1" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="obstacle_avoided" target="path_allocation" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="346" yCoord="352"/>
-      <arcpath arcPointType="false" id="1" xCoord="230" yCoord="417"/>
+      <arcpath arcPointType="false" id="1" xCoord="230" yCoord="415"/>
     </arc>
     <arc id="A2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="avoidance_operation" target="obstacle_avoided" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="489" yCoord="375"/>
@@ -189,11 +189,11 @@
     </arc>
     <arc id="A3" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="rerouted_path" target="path_allocation" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="495" yCoord="505"/>
-      <arcpath arcPointType="false" id="1" xCoord="229" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="229" yCoord="425"/>
     </arc>
     <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="obstacle_detected" target="avoidance_operation" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="617" yCoord="307"/>
-      <arcpath arcPointType="false" id="1" xCoord="499" yCoord="380"/>
+      <arcpath arcPointType="false" id="0" xCoord="616" yCoord="307"/>
+      <arcpath arcPointType="false" id="1" xCoord="499" yCoord="375"/>
     </arc>
     <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="path_generation" target="obstacle_detected" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="699" yCoord="405"/>
@@ -204,8 +204,8 @@
       <arcpath arcPointType="false" id="1" xCoord="523" yCoord="502"/>
     </arc>
     <arc id="A7" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="get_path_data" target="path_generation" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="840" yCoord="404"/>
-      <arcpath arcPointType="false" id="1" xCoord="710" yCoord="400"/>
+      <arcpath arcPointType="false" id="0" xCoord="840" yCoord="405"/>
+      <arcpath arcPointType="false" id="1" xCoord="709" yCoord="405"/>
     </arc>
     <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enabling_autonomous_driving" target="get_path_data" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="984" yCoord="405"/>
@@ -213,11 +213,11 @@
     </arc>
     <arc id="A9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="manual_operation" target="enabling_autonomous_driving" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="1086" yCoord="267"/>
-      <arcpath arcPointType="false" id="1" xCoord="995" yCoord="396"/>
+      <arcpath arcPointType="false" id="1" xCoord="995" yCoord="400"/>
     </arc>
     <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="initiaize_comm_data" target="enabling_autonomous_driving" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="1157" yCoord="516"/>
-      <arcpath arcPointType="false" id="1" xCoord="994" yCoord="414"/>
+      <arcpath arcPointType="false" id="1" xCoord="994" yCoord="410"/>
     </arc>
   </net>
   <net active="true" id="External_System" type="P/T net">
@@ -234,60 +234,60 @@
     <transition angle="0" displayName="true" id="Charging_Done" infiniteServer="false" name="Charging_Done" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1170" positionY="135" priority="0" urgent="false"/>
     <transition angle="90" displayName="true" id="Queue_Updated" infiniteServer="false" name="Queue_Updated" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1170" positionY="390" priority="0" urgent="false"/>
     <arc id="A0" inscription="[0,3]" nameOffsetX="-1" nameOffsetY="0" source="Charging_ON" target="Drone_Request_Arrives" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="107" yCoord="162"/>
-      <arcpath arcPointType="false" id="1" xCoord="253" yCoord="94"/>
+      <arcpath arcPointType="false" id="0" xCoord="103" yCoord="158"/>
+      <arcpath arcPointType="false" id="1" xCoord="249" yCoord="90"/>
     </arc>
     <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Drone_Request_Arrives" target="Request_Is_waiting" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="263" yCoord="94"/>
-      <arcpath arcPointType="false" id="1" xCoord="409" yCoord="94"/>
+      <arcpath arcPointType="false" id="0" xCoord="259" yCoord="90"/>
+      <arcpath arcPointType="false" id="1" xCoord="405" yCoord="90"/>
     </arc>
     <arc id="A2" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Station_Available" target="Allocate_Charging_Station" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="273" yCoord="269"/>
-      <arcpath arcPointType="false" id="1" xCoord="493" yCoord="204"/>
+      <arcpath arcPointType="false" id="0" xCoord="269" yCoord="265"/>
+      <arcpath arcPointType="false" id="1" xCoord="489" yCoord="200"/>
     </arc>
     <arc id="A3" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Request_Is_waiting" target="Allocate_Charging_Station" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="432" yCoord="106"/>
-      <arcpath arcPointType="false" id="1" xCoord="494" yCoord="194"/>
+      <arcpath arcPointType="false" id="0" xCoord="428" yCoord="102"/>
+      <arcpath arcPointType="false" id="1" xCoord="490" yCoord="190"/>
     </arc>
     <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Allocate_Charging_Station" target="Wait_For_Charging_Slot" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="503" yCoord="199"/>
-      <arcpath arcPointType="false" id="1" xCoord="649" yCoord="144"/>
+      <arcpath arcPointType="false" id="0" xCoord="499" yCoord="195"/>
+      <arcpath arcPointType="false" id="1" xCoord="645" yCoord="140"/>
     </arc>
     <arc id="A5" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Wait_For_Charging_Slot" target="Allocate_Slot" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="678" yCoord="139"/>
-      <arcpath arcPointType="false" id="1" xCoord="839" yCoord="149"/>
+      <arcpath arcPointType="false" id="0" xCoord="674" yCoord="135"/>
+      <arcpath arcPointType="false" id="1" xCoord="835" yCoord="145"/>
     </arc>
     <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Charging_Slot_Available" target="Allocate_Slot" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="705" yCoord="264"/>
-      <arcpath arcPointType="false" id="1" xCoord="838" yCoord="159"/>
+      <arcpath arcPointType="false" id="0" xCoord="701" yCoord="260"/>
+      <arcpath arcPointType="false" id="1" xCoord="834" yCoord="155"/>
     </arc>
     <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Allocate_Slot" target="Charging_In_Progress" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="848" yCoord="154"/>
-      <arcpath arcPointType="false" id="1" xCoord="1009" yCoord="154"/>
+      <arcpath arcPointType="false" id="0" xCoord="844" yCoord="150"/>
+      <arcpath arcPointType="false" id="1" xCoord="1005" yCoord="150"/>
     </arc>
     <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Charging_In_Progress" target="Charging_Done" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1039" yCoord="154"/>
-      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="154"/>
+      <arcpath arcPointType="false" id="0" xCoord="1035" yCoord="150"/>
+      <arcpath arcPointType="false" id="1" xCoord="1179" yCoord="150"/>
     </arc>
     <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Charging_Done" target="Update_Queue" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1189" yCoord="169"/>
-      <arcpath arcPointType="false" id="1" xCoord="1189" yCoord="289"/>
+      <arcpath arcPointType="false" id="0" xCoord="1185" yCoord="165"/>
+      <arcpath arcPointType="false" id="1" xCoord="1185" yCoord="285"/>
     </arc>
     <arc id="A10" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Update_Queue" target="Queue_Updated" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1188" yCoord="318"/>
-      <arcpath arcPointType="false" id="1" xCoord="1188" yCoord="403"/>
+      <arcpath arcPointType="false" id="0" xCoord="1184" yCoord="314"/>
+      <arcpath arcPointType="false" id="1" xCoord="1184" yCoord="399"/>
     </arc>
     <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Queue_Updated" target="Charging_Slot_Available" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1188" yCoord="413"/>
-      <arcpath arcPointType="false" id="1" xCoord="1209" yCoord="499"/>
-      <arcpath arcPointType="false" id="2" xCoord="723" yCoord="494"/>
-      <arcpath arcPointType="false" id="3" xCoord="695" yCoord="288"/>
+      <arcpath arcPointType="false" id="0" xCoord="1184" yCoord="409"/>
+      <arcpath arcPointType="false" id="1" xCoord="1213" yCoord="503"/>
+      <arcpath arcPointType="false" id="2" xCoord="727" yCoord="498"/>
+      <arcpath arcPointType="false" id="3" xCoord="692" yCoord="284"/>
     </arc>
     <arc id="A12" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Queue_Updated" target="Station_Available" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="1188" yCoord="413"/>
-      <arcpath arcPointType="false" id="1" xCoord="1210" yCoord="545"/>
-      <arcpath arcPointType="false" id="2" xCoord="269" yCoord="538"/>
-      <arcpath arcPointType="false" id="3" xCoord="259" yCoord="288"/>
+      <arcpath arcPointType="false" id="0" xCoord="1184" yCoord="409"/>
+      <arcpath arcPointType="false" id="1" xCoord="1214" yCoord="549"/>
+      <arcpath arcPointType="false" id="2" xCoord="273" yCoord="542"/>
+      <arcpath arcPointType="false" id="3" xCoord="255" yCoord="284"/>
     </arc>
   </net>
   <net active="true" id="Communication" type="P/T net">
@@ -417,6 +417,9 @@
   <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Charging Done" overApproximation="true" pTrie="true" query="EF External_System.Charging_In_Progress = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
   <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Overall_Process_Monitoring" overApproximation="true" pTrie="true" query="EF Communication.Overall_Process_Monitoring = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
   <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="CropsTreated_Accordingly" overApproximation="false" pTrie="true" query="EF deadlock" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="true" hashTableSize="null" inclusionPlaces="*NONE*" name="Message_Delivered Multiple_Drones" overApproximation="true" pTrie="true" query="EF !(Multiple_Drones.WeedDetector_Drone &gt; 3)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="true" hashTableSize="null" inclusionPlaces="*NONE*" name="Goal_Reached Multiple Drones" overApproximation="true" pTrie="true" query="EF Multiple_Drones.Weed_spray = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="false" hashTableSize="null" inclusionPlaces="*NONE*" name="No Deadlock Multiple_Drones" overApproximation="false" pTrie="true" query="EF !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
   <k-bound bound="3"/>
   <feature isGame="false" isTimed="true"/>
 </pnml>
