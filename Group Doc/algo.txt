@@ -1,0 +1,31 @@
+def chargingStatus(drone):
+	if charging == 100:
+		return 'charging done'
+	else 
+		'charging not done'	
+
+def start_flight(drone):
+	initiating flight mode
+
+def detect_weed(plant)
+	if plant == weed
+		return True
+	else return False;
+
+def send_message(path, drone, info)
+
+def send_message(path, drone)
+
+def send_weed_map(drone):
+	path = get_map()
+	send(path, drone)
+	if send == 'successful'
+		return 'map successfully sent'
+	else
+		return 'message_failed'
+
+def weed_spray(path)
+
+def send_info():
+	weed_spray_path = weed_spray()
+	send_message(weed_spray_path, drone, info)
