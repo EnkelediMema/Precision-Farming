@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-place initialMarking="1" invariant="&lt; inf" name="Start"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Initialize_Program"/>
+  <shared-transition name="T2" player="0" urgent="false"/>
+  <net active="true" id="Biometric_Door_Lock" type="P/T net">
+    <place displayName="true" id="Start" initialMarking="1" invariant="&lt; inf" name="Start" nameOffsetX="0" nameOffsetY="0" positionX="165" positionY="120"/>
+    <place displayName="true" id="P7" initialMarking="0" invariant="&lt; inf" name="P7" nameOffsetX="0" nameOffsetY="0" positionX="165" positionY="210"/>
+    <place displayName="true" id="FingerPrint_Sensor" initialMarking="0" invariant="&lt; inf" name="FingerPrint_Sensor" nameOffsetX="0" nameOffsetY="0" positionX="165" positionY="330"/>
+    <place displayName="true" id="FingerPrint_Correct" initialMarking="0" invariant="&lt; inf" name="FingerPrint_Correct" nameOffsetX="55" nameOffsetY="57" positionX="165" positionY="450"/>
+    <place displayName="true" id="FingerPrint_Wrong" initialMarking="0" invariant="&lt; inf" name="FingerPrint_Wrong" nameOffsetX="54" nameOffsetY="-9" positionX="300" positionY="375"/>
+    <place displayName="true" id="Door_Unlocked" initialMarking="0" invariant="&lt; inf" name="Door_Unlocked" nameOffsetX="52" nameOffsetY="56" positionX="345" positionY="450"/>
+    <place displayName="true" id="Door_Locked" initialMarking="0" invariant="&lt; inf" name="Door_Locked" nameOffsetX="41" nameOffsetY="57" positionX="585" positionY="450"/>
+    <transition angle="90" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="165" positionY="165" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="T7" infiniteServer="false" name="T7" nameOffsetX="0" nameOffsetY="0" player="0" positionX="165" positionY="270" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="T3" infiniteServer="false" name="T3" nameOffsetX="0" nameOffsetY="0" player="0" positionX="165" positionY="375" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T4" infiniteServer="false" name="T4" nameOffsetX="0" nameOffsetY="0" player="0" positionX="255" positionY="450" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Seven_Seconds" infiniteServer="false" name="Seven_Seconds" nameOffsetX="53" nameOffsetY="61" player="0" positionX="450" positionY="450" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T8" infiniteServer="false" name="T8" nameOffsetX="0" nameOffsetY="0" player="0" positionX="585" positionY="360" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T9" infiniteServer="false" name="T9" nameOffsetX="0" nameOffsetY="0" player="0" positionX="435" positionY="360" priority="0" urgent="false"/>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P7" target="T7" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="179" yCoord="239"/>
+      <arcpath arcPointType="false" id="1" xCoord="179" yCoord="279"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T7" target="FingerPrint_Sensor" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="179" yCoord="289"/>
+      <arcpath arcPointType="false" id="1" xCoord="179" yCoord="330"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="FingerPrint_Sensor" target="T3" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="179" yCoord="359"/>
+      <arcpath arcPointType="false" id="1" xCoord="179" yCoord="384"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="FingerPrint_Correct" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="179" yCoord="394"/>
+      <arcpath arcPointType="false" id="1" xCoord="179" yCoord="450"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="FingerPrint_Correct" target="T4" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="195" yCoord="465"/>
+      <arcpath arcPointType="false" id="1" xCoord="264" yCoord="465"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T4" target="Door_Unlocked" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="274" yCoord="465"/>
+      <arcpath arcPointType="false" id="1" xCoord="345" yCoord="465"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="FingerPrint_Wrong" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="194" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="300" yCoord="390"/>
+    </arc>
+    <arc id="A11" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Start" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="179" yCoord="149"/>
+      <arcpath arcPointType="false" id="1" xCoord="179" yCoord="174"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="P7" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="179" yCoord="184"/>
+      <arcpath arcPointType="false" id="1" xCoord="179" yCoord="210"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Door_Locked" target="T8" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="600" yCoord="450"/>
+      <arcpath arcPointType="false" id="1" xCoord="600" yCoord="390"/>
+    </arc>
+    <arc id="A15" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T8" target="P7" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="600" yCoord="360"/>
+      <arcpath arcPointType="false" id="1" xCoord="606" yCoord="244"/>
+      <arcpath arcPointType="false" id="2" xCoord="194" yCoord="225"/>
+    </arc>
+    <arc id="A16" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="FingerPrint_Wrong" target="T9" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="329" yCoord="388"/>
+      <arcpath arcPointType="false" id="1" xCoord="444" yCoord="375"/>
+    </arc>
+    <arc id="A17" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T9" target="P7" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="450" yCoord="360"/>
+      <arcpath arcPointType="false" id="1" xCoord="456" yCoord="285"/>
+      <arcpath arcPointType="false" id="2" xCoord="194" yCoord="228"/>
+    </arc>
+    <arc id="A19" inscription="[0,7]:1" nameOffsetX="12" nameOffsetY="-8" source="Door_Unlocked" target="Seven_Seconds" type="transport" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="375" yCoord="465"/>
+      <arcpath arcPointType="false" id="1" xCoord="459" yCoord="465"/>
+    </arc>
+    <arc id="A18" inscription="[0,7]:1" nameOffsetX="0" nameOffsetY="0" source="Seven_Seconds" target="Door_Locked" type="transport" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="469" yCoord="465"/>
+      <arcpath arcPointType="false" id="1" xCoord="585" yCoord="465"/>
+    </arc>
+  </net>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="false" hashTableSize="null" inclusionPlaces="*NONE*" name="Door_Unlocked" overApproximation="false" pTrie="true" query="AF deadlock" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="DFS" symmetry="false" timeDarts="false" traceOption="NONE" useStubbornReduction="false" useTarOption="false"/>
+  <k-bound bound="3"/>
+  <feature isGame="true" isTimed="true"/>
+</pnml>
