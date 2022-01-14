@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-place initialMarking="0" invariant="&lt; inf" name="MediumA"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="MediumB"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="MediumC"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="MediumD"/>
+  <constant name="Delay" value="6"/>
+  <net active="true" id="TAPN1" type="P/T net">
+    <place displayName="true" id="Sender_A" initialMarking="1" invariant="&lt; inf" name="Sender_A" nameOffsetX="-5" nameOffsetY="35" positionX="210" positionY="30"/>
+    <place displayName="true" id="Sender_B" initialMarking="0" invariant="&lt;= 6" name="Sender_B" nameOffsetX="-5" nameOffsetY="35" positionX="210" positionY="225"/>
+    <place displayName="true" id="MediumA" initialMarking="0" invariant="&lt; inf" name="MediumA" nameOffsetX="-5" nameOffsetY="35" positionX="480" positionY="135"/>
+    <place displayName="true" id="Sender_C" initialMarking="0" invariant="&lt; inf" name="Sender_C" nameOffsetX="-5" nameOffsetY="35" positionX="210" positionY="450"/>
+    <place displayName="true" id="MediumB" initialMarking="0" invariant="&lt; inf" name="MediumB" nameOffsetX="-5" nameOffsetY="35" positionX="465" positionY="360"/>
+    <place displayName="true" id="Sender_D" initialMarking="0" invariant="&lt;= 6" name="Sender_D" nameOffsetX="-5" nameOffsetY="35" positionX="195" positionY="705"/>
+    <place displayName="true" id="MediumC" initialMarking="0" invariant="&lt; inf" name="MediumC" nameOffsetX="-5" nameOffsetY="35" positionX="480" positionY="600"/>
+    <place displayName="true" id="MediumD" initialMarking="0" invariant="&lt; inf" name="MediumD" nameOffsetX="-5" nameOffsetY="35" positionX="465" positionY="840"/>
+    <transition angle="90" displayName="true" id="Send_0" infiniteServer="false" name="Send_0" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="210" positionY="135" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="ReSend_0" infiniteServer="false" name="ReSend_0" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="345" positionY="210" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Ack_rec_0" infiniteServer="false" name="Ack_rec_0" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="210" positionY="360" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Send_1" infiniteServer="false" name="Send_1" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="195" positionY="570" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="ReSend_1" infiniteServer="false" name="ReSend_1" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="300" positionY="690" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Ack_rec_1" infiniteServer="false" name="Ack_rec_1" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="195" positionY="855" priority="0" urgent="false"/>
+    <arc id="P0 to T0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sender_A" target="Send_0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="224" yCoord="59"/>
+      <arcpath arcPointType="false" id="1" xCoord="224" yCoord="144"/>
+    </arc>
+    <arc id="P1 to T1" inscription="[5,6]" nameOffsetX="0" nameOffsetY="0" source="Sender_B" target="ReSend_0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="238" yCoord="233"/>
+      <arcpath arcPointType="false" id="1" xCoord="286" yCoord="211"/>
+      <arcpath arcPointType="false" id="2" xCoord="354" yCoord="225"/>
+    </arc>
+    <arc id="P1 to T2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sender_B" target="Ack_rec_0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="224" yCoord="254"/>
+      <arcpath arcPointType="false" id="1" xCoord="224" yCoord="369"/>
+    </arc>
+    <arc id="P3 to T3" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sender_C" target="Send_1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="222" yCoord="479"/>
+      <arcpath arcPointType="false" id="1" xCoord="209" yCoord="579"/>
+    </arc>
+    <arc id="P4 to T2" inscription="[0,1]" nameOffsetX="0" nameOffsetY="0" source="MediumB" target="Ack_rec_0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="465" yCoord="375"/>
+      <arcpath arcPointType="false" id="1" xCoord="239" yCoord="375"/>
+    </arc>
+    <arc id="P5 to T4" inscription="[5,6]" nameOffsetX="0" nameOffsetY="0" source="Sender_D" target="ReSend_1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="216" yCoord="706"/>
+      <arcpath arcPointType="false" id="1" xCoord="241" yCoord="661"/>
+      <arcpath arcPointType="false" id="2" xCoord="309" yCoord="705"/>
+    </arc>
+    <arc id="P5 to T5" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sender_D" target="Ack_rec_1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="209" yCoord="734"/>
+      <arcpath arcPointType="false" id="1" xCoord="209" yCoord="864"/>
+    </arc>
+    <arc id="P7 to T5" inscription="[0,1]" nameOffsetX="0" nameOffsetY="0" source="MediumD" target="Ack_rec_1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="465" yCoord="855"/>
+      <arcpath arcPointType="false" id="1" xCoord="224" yCoord="870"/>
+    </arc>
+    <arc id="T0 to P1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Send_0" target="Sender_B" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="224" yCoord="154"/>
+      <arcpath arcPointType="false" id="1" xCoord="224" yCoord="225"/>
+    </arc>
+    <arc id="T0 to P2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Send_0" target="MediumA" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="239" yCoord="150"/>
+      <arcpath arcPointType="false" id="1" xCoord="480" yCoord="150"/>
+    </arc>
+    <arc id="T1 to P1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="ReSend_0" target="Sender_B" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="354" yCoord="230"/>
+      <arcpath arcPointType="false" id="1" xCoord="316" yCoord="256"/>
+      <arcpath arcPointType="false" id="2" xCoord="239" yCoord="242"/>
+    </arc>
+    <arc id="T1 to P2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="ReSend_0" target="MediumA" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="364" yCoord="225"/>
+      <arcpath arcPointType="false" id="1" xCoord="481" yCoord="157"/>
+    </arc>
+    <arc id="T2 to P3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Ack_rec_0" target="Sender_C" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="224" yCoord="379"/>
+      <arcpath arcPointType="false" id="1" xCoord="226" yCoord="376"/>
+      <arcpath arcPointType="false" id="2" xCoord="225" yCoord="450"/>
+    </arc>
+    <arc id="T3 to P5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Send_1" target="Sender_D" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="209" yCoord="589"/>
+      <arcpath arcPointType="false" id="1" xCoord="209" yCoord="705"/>
+    </arc>
+    <arc id="T3 to P6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Send_1" target="MediumC" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="224" yCoord="585"/>
+      <arcpath arcPointType="false" id="1" xCoord="480" yCoord="613"/>
+    </arc>
+    <arc id="T4 to P5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="ReSend_1" target="Sender_D" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="309" yCoord="710"/>
+      <arcpath arcPointType="false" id="1" xCoord="271" yCoord="751"/>
+      <arcpath arcPointType="false" id="2" xCoord="223" yCoord="726"/>
+    </arc>
+    <arc id="T4 to P6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="ReSend_1" target="MediumC" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="319" yCoord="705"/>
+      <arcpath arcPointType="false" id="1" xCoord="481" yCoord="621"/>
+    </arc>
+    <arc id="T5 to P0" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Ack_rec_1" target="Sender_A" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="209" yCoord="874"/>
+      <arcpath arcPointType="false" id="1" xCoord="211" yCoord="916"/>
+      <arcpath arcPointType="false" id="2" xCoord="121" yCoord="901"/>
+      <arcpath arcPointType="false" id="3" xCoord="121" yCoord="16"/>
+      <arcpath arcPointType="false" id="4" xCoord="226" yCoord="16"/>
+      <arcpath arcPointType="false" id="5" xCoord="225" yCoord="30"/>
+    </arc>
+  </net>
+  <net active="true" id="Sender" type="P/T net"/>
+  <net active="true" id="Receiver" type="P/T net"/>
+  <net active="true" id="MediumNonLossy" type="P/T net"/>
+  <net active="true" id="MediumLossy" type="P/T net"/>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
