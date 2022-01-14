@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-place initialMarking="0" invariant="&lt; inf" name="HD_Map_Path_Data"/>
+  <shared-transition name="Charging_Done" player="0" urgent="false"/>
+  <shared-transition name="Drone_Start_Sharing_info" player="0" urgent="false"/>
+  <constant name="Timey" value="5"/>
+  <net active="true" id="Multiple_Drones" type="P/T net">
+    <place displayName="true" id="WeedDetector_Drone" initialMarking="1" invariant="&lt; inf" name="WeedDetector_Drone" nameOffsetX="97" nameOffsetY="0" positionX="210" positionY="210"/>
+    <place displayName="true" id="Recharge_Station" initialMarking="0" invariant="&lt; inf" name="Recharge_Station" nameOffsetX="61" nameOffsetY="50" positionX="375" positionY="360"/>
+    <place displayName="true" id="Flight_Mode" initialMarking="0" invariant="&lt; inf" name="Flight_Mode" nameOffsetX="31" nameOffsetY="-15" positionX="525" positionY="210"/>
+    <place displayName="true" id="Weed_Detection" initialMarking="0" invariant="&lt; inf" name="Weed_Detection" nameOffsetX="45" nameOffsetY="-6" positionX="810" positionY="210"/>
+    <place displayName="true" id="WeedSprayer_With_WeedPath" initialMarking="0" invariant="&lt;= 3" name="WeedSprayer_With_WeedPath" nameOffsetX="96" nameOffsetY="41" positionX="1005" positionY="345"/>
+    <place displayName="true" id="Weed_spray" initialMarking="0" invariant="&lt; inf" name="Weed_spray" nameOffsetX="44" nameOffsetY="0" positionX="690" positionY="345"/>
+    <place displayName="true" id="P0" initialMarking="0" invariant="&lt; inf" name="P0" nameOffsetX="0" nameOffsetY="0" positionX="675" positionY="525"/>
+    <transition angle="0" displayName="true" id="Charging_Done" infiniteServer="false" name="Charging_Done" nameOffsetX="1" nameOffsetY="19" player="0" positionX="210" positionY="360" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Start_Flight" infiniteServer="false" name="Start_Flight" nameOffsetX="35" nameOffsetY="3" player="0" positionX="375" positionY="210" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Detect_Weed" infiniteServer="false" name="Detect_Weed" nameOffsetX="36" nameOffsetY="-2" player="0" positionX="675" positionY="210" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Reach_target" infiniteServer="false" name="Reach_target" nameOffsetX="36" nameOffsetY="-2" player="0" positionX="795" positionY="345" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Send_Map_WeedSprayer_Drone" infiniteServer="false" name="Send_Map_WeedSprayer_Drone" nameOffsetX="160" nameOffsetY="-1" player="0" positionX="1005" positionY="210" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Drone_Start_Sharing_info" infiniteServer="false" name="Drone_Start_Sharing_info" nameOffsetX="0" nameOffsetY="0" player="0" positionX="675" positionY="420" priority="0" urgent="false"/>
+    <arc id="A1" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="WeedDetector_Drone" target="Charging_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="225" yCoord="240"/>
+      <arcpath arcPointType="false" id="1" xCoord="225" yCoord="360"/>
+    </arc>
+    <arc id="A2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Charging_Done" target="Recharge_Station" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="229" yCoord="375"/>
+      <arcpath arcPointType="false" id="1" xCoord="375" yCoord="375"/>
+    </arc>
+    <arc id="A3" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Recharge_Station" target="Start_Flight" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="390" yCoord="360"/>
+      <arcpath arcPointType="false" id="1" xCoord="390" yCoord="240"/>
+    </arc>
+    <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Start_Flight" target="Flight_Mode" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="394" yCoord="225"/>
+      <arcpath arcPointType="false" id="1" xCoord="525" yCoord="225"/>
+    </arc>
+    <arc id="A5" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Flight_Mode" target="Detect_Weed" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="555" yCoord="225"/>
+      <arcpath arcPointType="false" id="1" xCoord="684" yCoord="225"/>
+    </arc>
+    <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Detect_Weed" target="Weed_Detection" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="694" yCoord="225"/>
+      <arcpath arcPointType="false" id="1" xCoord="810" yCoord="225"/>
+    </arc>
+    <arc id="A9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="WeedSprayer_With_WeedPath" target="Reach_target" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1005" yCoord="360"/>
+      <arcpath arcPointType="false" id="1" xCoord="814" yCoord="360"/>
+    </arc>
+    <arc id="A10" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Reach_target" target="Weed_spray" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="804" yCoord="360"/>
+      <arcpath arcPointType="false" id="1" xCoord="720" yCoord="360"/>
+    </arc>
+    <arc id="A11" inscription="[3,5]:1" nameOffsetX="0" nameOffsetY="0" source="Weed_Detection" target="Send_Map_WeedSprayer_Drone" type="transport" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="840" yCoord="225"/>
+      <arcpath arcPointType="false" id="1" xCoord="1014" yCoord="225"/>
+    </arc>
+    <arc id="A8" inscription="[3,5]:1" nameOffsetX="0" nameOffsetY="0" source="Send_Map_WeedSprayer_Drone" target="WeedSprayer_With_WeedPath" type="transport" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1020" yCoord="240"/>
+      <arcpath arcPointType="false" id="1" xCoord="1020" yCoord="345"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Weed_spray" target="Drone_Start_Sharing_info" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="701" yCoord="374"/>
+      <arcpath arcPointType="false" id="1" xCoord="690" yCoord="420"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Drone_Start_Sharing_info" target="P0" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="690" yCoord="450"/>
+      <arcpath arcPointType="false" id="1" xCoord="690" yCoord="525"/>
+    </arc>
+  </net>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="CropsTreated_Accordingly" overApproximation="false" pTrie="true" query="EF deadlock" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Message_Delivered Multiple_Drones" overApproximation="true" pTrie="true" query="EF !(Multiple_Drones.WeedDetector_Drone &gt; 3)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Goal_Reached Multiple Drones" overApproximation="true" pTrie="true" query="EF Multiple_Drones.Weed_spray = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="No Deadlock Multiple_Drones" overApproximation="false" pTrie="true" query="EF !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Deadlock_Communication" overApproximation="false" pTrie="true" query="EF !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
