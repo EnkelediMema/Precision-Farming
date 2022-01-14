@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Sensor_Data_Available_For_Obstacle"/>
+  <shared-transition name="Charging_Done" player="0" urgent="false"/>
+  <shared-transition name="Drone_Start_Sharing_info" player="0" urgent="false"/>
+  <shared-transition name="path_generation" player="0" urgent="false"/>
+  <constant name="Timey" value="5"/>
+  <net active="true" id="Autonomous_Driving" type="P/T net">
+    <place displayName="true" id="manual_operation" initialMarking="1" invariant="&lt; inf" name="manual_operation" nameOffsetX="0" nameOffsetY="0" positionX="1250" positionY="323"/>
+    <place displayName="true" id="initiaize_comm_data" initialMarking="1" invariant="&lt; inf" name="initiaize_comm_data" nameOffsetX="0" nameOffsetY="0" positionX="1275" positionY="510"/>
+    <place displayName="true" id="HD_Map_Path_Data" initialMarking="0" invariant="&lt; inf" name="HD_Map_Path_Data" nameOffsetX="57" nameOffsetY="52" positionX="960" positionY="390"/>
+    <place displayName="true" id="Sensor_Data_Available_For_Obstacle" initialMarking="0" invariant="&lt; inf" name="Sensor_Data_Available_For_Obstacle" nameOffsetX="83" nameOffsetY="-5" positionX="593" positionY="239"/>
+    <place displayName="true" id="obstacle_avoided" initialMarking="0" invariant="&lt; inf" name="obstacle_avoided" nameOffsetX="37" nameOffsetY="-12" positionX="416" positionY="313"/>
+    <place displayName="true" id="rerouted_path" initialMarking="0" invariant="&lt; inf" name="rerouted_path" nameOffsetX="25" nameOffsetY="47" positionX="666" positionY="446"/>
+    <place displayName="true" id="completed" initialMarking="0" invariant="&lt; inf" name="completed" nameOffsetX="0" nameOffsetY="0" positionX="232" positionY="422"/>
+    <place displayName="true" id="Obstacle_Detected" initialMarking="0" invariant="&lt; inf" name="Obstacle_Detected" nameOffsetX="111" nameOffsetY="31" positionX="823" positionY="306"/>
+    <transition angle="0" displayName="true" id="enabling_autonomous_driving" infiniteServer="false" name="enabling_autonomous_driving" nameOffsetX="56" nameOffsetY="-10" player="0" positionX="1095" positionY="390" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="path_generation" infiniteServer="false" name="path_generation" nameOffsetX="52" nameOffsetY="54" player="0" positionX="810" positionY="390" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="avoidance_operation" infiniteServer="false" name="avoidance_operation" nameOffsetX="58" nameOffsetY="50" player="0" positionX="526" positionY="310" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="path_allocation" infiniteServer="false" name="path_allocation" nameOffsetX="47" nameOffsetY="-8" player="0" positionX="347" positionY="422" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T0" infiniteServer="false" name="T0" nameOffsetX="0" nameOffsetY="0" player="0" positionX="733" positionY="232" priority="0" urgent="false"/>
+    <arc id="A0" inscription="1" nameOffsetX="0" nameOffsetY="0" source="path_allocation" target="completed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="356" yCoord="438"/>
+      <arcpath arcPointType="false" id="1" xCoord="263" yCoord="438"/>
+    </arc>
+    <arc id="A1" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="obstacle_avoided" target="path_allocation" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="423" yCoord="340"/>
+      <arcpath arcPointType="false" id="1" xCoord="368" yCoord="433"/>
+    </arc>
+    <arc id="A2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="avoidance_operation" target="obstacle_avoided" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="535" yCoord="325"/>
+      <arcpath arcPointType="false" id="1" xCoord="445" yCoord="326"/>
+    </arc>
+    <arc id="A3" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="rerouted_path" target="path_allocation" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="666" yCoord="460"/>
+      <arcpath arcPointType="false" id="1" xCoord="366" yCoord="443"/>
+    </arc>
+    <arc id="A4" inscription="[0,5]" nameOffsetX="0" nameOffsetY="0" source="Sensor_Data_Available_For_Obstacle" target="avoidance_operation" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="598" yCoord="265"/>
+      <arcpath arcPointType="false" id="1" xCoord="545" yCoord="325"/>
+    </arc>
+    <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="path_generation" target="rerouted_path" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="819" yCoord="405"/>
+      <arcpath arcPointType="false" id="1" xCoord="695" yCoord="455"/>
+    </arc>
+    <arc id="A7" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="HD_Map_Path_Data" target="path_generation" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="960" yCoord="405"/>
+      <arcpath arcPointType="false" id="1" xCoord="829" yCoord="405"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enabling_autonomous_driving" target="HD_Map_Path_Data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1104" yCoord="405"/>
+      <arcpath arcPointType="false" id="1" xCoord="990" yCoord="405"/>
+    </arc>
+    <arc id="A9" inscription="[2,inf)" nameOffsetX="0" nameOffsetY="0" source="manual_operation" target="enabling_autonomous_driving" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1250" yCoord="343"/>
+      <arcpath arcPointType="false" id="1" xCoord="1115" yCoord="400"/>
+    </arc>
+    <arc id="A10" inscription="[2,inf)" nameOffsetX="0" nameOffsetY="0" source="initiaize_comm_data" target="enabling_autonomous_driving" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1276" yCoord="516"/>
+      <arcpath arcPointType="false" id="1" xCoord="1114" yCoord="410"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="path_allocation" target="initiaize_comm_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="363" yCoord="453"/>
+      <arcpath arcPointType="false" id="1" xCoord="361" yCoord="580"/>
+      <arcpath arcPointType="false" id="2" xCoord="1286" yCoord="578"/>
+      <arcpath arcPointType="false" id="3" xCoord="1289" yCoord="539"/>
+    </arc>
+    <arc id="A12" inscription="1" nameOffsetX="0" nameOffsetY="0" source="path_generation" target="Obstacle_Detected" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="825" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="834" yCoord="335"/>
+    </arc>
+    <arc id="A13" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Obstacle_Detected" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="825" yCoord="311"/>
+      <arcpath arcPointType="false" id="1" xCoord="751" yCoord="248"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T0" target="Sensor_Data_Available_For_Obstacle" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="741" yCoord="248"/>
+      <arcpath arcPointType="false" id="1" xCoord="621" yCoord="253"/>
+    </arc>
+  </net>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="CropsTreated_Accordingly" overApproximation="false" pTrie="true" query="EF deadlock" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="No Deadlock Multiple_Drones" overApproximation="false" pTrie="true" query="EF !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Deadlock_Communication" overApproximation="false" pTrie="true" query="EF !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
