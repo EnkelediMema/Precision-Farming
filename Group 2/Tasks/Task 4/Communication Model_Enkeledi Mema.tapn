@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Sensor_Data_Available_For_Obstacle"/>
+  <shared-transition name="Charging_Done" player="0" urgent="false"/>
+  <shared-transition name="Drone_Start_Sharing_info" player="0" urgent="false"/>
+  <shared-transition name="path_generation" player="0" urgent="false"/>
+  <constant name="Timey" value="5"/>
+  <net active="true" id="Communication" type="P/T net">
+    <place displayName="true" id="Farmer_Request_Arrived" initialMarking="0" invariant="&lt; inf" name="Farmer_Request_Arrived" nameOffsetX="0" nameOffsetY="0" positionX="315" positionY="30"/>
+    <place displayName="true" id="Cloud_Based_System_Active" initialMarking="0" invariant="&lt; inf" name="Cloud_Based_System_Active" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="30"/>
+    <place displayName="true" id="Request_Drone_Status" initialMarking="0" invariant="&lt; inf" name="Request_Drone_Status" nameOffsetX="0" nameOffsetY="0" positionX="165" positionY="225"/>
+    <place displayName="true" id="Drones_Operation_Normal" initialMarking="0" invariant="&lt; inf" name="Drones_Operation_Normal" nameOffsetX="0" nameOffsetY="0" positionX="95" positionY="420"/>
+    <place displayName="true" id="Request_Vehicles_Status" initialMarking="0" invariant="&lt; inf" name="Request_Vehicles_Status" nameOffsetX="0" nameOffsetY="0" positionX="465" positionY="225"/>
+    <place displayName="true" id="Vehicles_Normal_Operation" initialMarking="0" invariant="&lt; inf" name="Vehicles_Normal_Operation" nameOffsetX="0" nameOffsetY="0" positionX="375" positionY="390"/>
+    <place displayName="true" id="Request_Sensor_Status" initialMarking="0" invariant="&lt; inf" name="Request_Sensor_Status" nameOffsetX="0" nameOffsetY="0" positionX="780" positionY="225"/>
+    <place displayName="true" id="Sensor_Data_Available_For_Obstacle" initialMarking="0" invariant="&lt; inf" name="Sensor_Data_Available_For_Obstacle" nameOffsetX="0" nameOffsetY="0" positionX="840" positionY="435"/>
+    <place displayName="true" id="Drone_Information_Analyzation" initialMarking="0" invariant="&lt; inf" name="Drone_Information_Analyzation" nameOffsetX="0" nameOffsetY="0" positionX="195" positionY="390"/>
+    <place displayName="true" id="Drone_Malfuction_Solved" initialMarking="0" invariant="&lt; inf" name="Drone_Malfuction_Solved" nameOffsetX="0" nameOffsetY="0" positionX="180" positionY="600"/>
+    <place displayName="true" id="Overall_Process_Monitoring" initialMarking="0" invariant="&lt; inf" name="Overall_Process_Monitoring" nameOffsetX="0" nameOffsetY="0" positionX="390" positionY="795"/>
+    <place displayName="true" id="Vehicles_Information_Analyzation" initialMarking="0" invariant="&lt; inf" name="Vehicles_Information_Analyzation" nameOffsetX="0" nameOffsetY="0" positionX="600" positionY="390"/>
+    <place displayName="true" id="Vehicle_Malfuction_Solved" initialMarking="0" invariant="&lt; inf" name="Vehicle_Malfuction_Solved" nameOffsetX="0" nameOffsetY="0" positionX="600" positionY="585"/>
+    <transition angle="90" displayName="true" id="Communication_Active" infiniteServer="false" name="Communication_Active" nameOffsetX="0" nameOffsetY="0" player="0" positionX="450" positionY="120" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Drone_Start_Sharing_info" infiniteServer="false" name="Drone_Start_Sharing_info" nameOffsetX="0" nameOffsetY="0" player="0" positionX="165" positionY="315" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Vehicles_Start_Sharing_Info" infiniteServer="false" name="Vehicles_Start_Sharing_Info" nameOffsetX="0" nameOffsetY="0" player="0" positionX="465" positionY="315" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Sensors_Data_Gathering" infiniteServer="false" name="Sensors_Data_Gathering" nameOffsetX="0" nameOffsetY="0" player="0" positionX="765" positionY="315" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Drone_Malfuction_Present" infiniteServer="false" name="Drone_Malfuction_Present" nameOffsetX="0" nameOffsetY="0" player="0" positionX="180" positionY="495" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Vehicle_Malfuction_Present" infiniteServer="false" name="Vehicle_Malfuction_Present" nameOffsetX="0" nameOffsetY="0" player="0" positionX="600" positionY="510" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Sensor_Overall_Synch" infiniteServer="false" name="Sensor_Overall_Synch" nameOffsetX="0" nameOffsetY="0" player="0" positionX="795" positionY="705" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Drone_Overall_Synch" infiniteServer="false" name="Drone_Overall_Synch" nameOffsetX="0" nameOffsetY="0" player="0" positionX="105" positionY="690" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Vehicles_Overall_Synch" infiniteServer="false" name="Vehicles_Overall_Synch" nameOffsetX="0" nameOffsetY="0" player="0" positionX="495" positionY="705" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Farmer_Request_Arrived" target="Communication_Active" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="342" yCoord="52"/>
+      <arcpath arcPointType="false" id="1" xCoord="464" yCoord="129"/>
+    </arc>
+    <arc id="A1" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Cloud_Based_System_Active" target="Communication_Active" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="617" yCoord="52"/>
+      <arcpath arcPointType="false" id="1" xCoord="479" yCoord="135"/>
+    </arc>
+    <arc id="A2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Communication_Active" target="Request_Drone_Status" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="449" yCoord="135"/>
+      <arcpath arcPointType="false" id="1" xCoord="193" yCoord="234"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Communication_Active" target="Request_Vehicles_Status" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="464" yCoord="139"/>
+      <arcpath arcPointType="false" id="1" xCoord="477" yCoord="225"/>
+    </arc>
+    <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Communication_Active" target="Request_Sensor_Status" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="479" yCoord="135"/>
+      <arcpath arcPointType="false" id="1" xCoord="780" yCoord="235"/>
+    </arc>
+    <arc id="A5" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Request_Drone_Status" target="Drone_Start_Sharing_info" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="179" yCoord="254"/>
+      <arcpath arcPointType="false" id="1" xCoord="179" yCoord="324"/>
+    </arc>
+    <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Drone_Start_Sharing_info" target="Drone_Information_Analyzation" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="179" yCoord="334"/>
+      <arcpath arcPointType="false" id="1" xCoord="203" yCoord="391"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Drone_Start_Sharing_info" target="Drones_Operation_Normal" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="179" yCoord="334"/>
+      <arcpath arcPointType="false" id="1" xCoord="118" yCoord="422"/>
+    </arc>
+    <arc id="A8" inscription="[0,3]" nameOffsetX="0" nameOffsetY="0" source="Drone_Information_Analyzation" target="Drone_Malfuction_Present" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="207" yCoord="419"/>
+      <arcpath arcPointType="false" id="1" xCoord="194" yCoord="504"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Drone_Malfuction_Present" target="Drone_Malfuction_Solved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="194" yCoord="514"/>
+      <arcpath arcPointType="false" id="1" xCoord="194" yCoord="600"/>
+    </arc>
+    <arc id="A10" inscription="[0,3]" nameOffsetX="0" nameOffsetY="0" source="Drone_Malfuction_Solved" target="Drone_Overall_Synch" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="185" yCoord="626"/>
+      <arcpath arcPointType="false" id="1" xCoord="124" yCoord="700"/>
+    </arc>
+    <arc id="A11" inscription="[0,7]" nameOffsetX="0" nameOffsetY="0" source="Drones_Operation_Normal" target="Drone_Overall_Synch" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="110" yCoord="449"/>
+      <arcpath arcPointType="false" id="1" xCoord="114" yCoord="699"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Request_Vehicles_Status" target="Vehicles_Start_Sharing_Info" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="479" yCoord="254"/>
+      <arcpath arcPointType="false" id="1" xCoord="479" yCoord="324"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Vehicles_Start_Sharing_Info" target="Vehicles_Normal_Operation" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="479" yCoord="334"/>
+      <arcpath arcPointType="false" id="1" xCoord="401" yCoord="395"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Vehicles_Start_Sharing_Info" target="Vehicles_Information_Analyzation" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="494" yCoord="330"/>
+      <arcpath arcPointType="false" id="1" xCoord="602" yCoord="397"/>
+    </arc>
+    <arc id="A15" inscription="[0,3]" nameOffsetX="0" nameOffsetY="0" source="Vehicles_Information_Analyzation" target="Vehicle_Malfuction_Present" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="614" yCoord="419"/>
+      <arcpath arcPointType="false" id="1" xCoord="614" yCoord="519"/>
+    </arc>
+    <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Vehicle_Malfuction_Present" target="Vehicle_Malfuction_Solved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="614" yCoord="529"/>
+      <arcpath arcPointType="false" id="1" xCoord="614" yCoord="585"/>
+    </arc>
+    <arc id="A17" inscription="[0,3]" nameOffsetX="0" nameOffsetY="0" source="Vehicle_Malfuction_Solved" target="Vehicles_Overall_Synch" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="605" yCoord="611"/>
+      <arcpath arcPointType="false" id="1" xCoord="514" yCoord="715"/>
+    </arc>
+    <arc id="A18" inscription="[0,7]" nameOffsetX="0" nameOffsetY="0" source="Vehicles_Normal_Operation" target="Vehicles_Overall_Synch" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="395" yCoord="419"/>
+      <arcpath arcPointType="false" id="1" xCoord="504" yCoord="714"/>
+    </arc>
+    <arc id="A19" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Vehicles_Overall_Synch" target="Overall_Process_Monitoring" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="509" yCoord="724"/>
+      <arcpath arcPointType="false" id="1" xCoord="416" yCoord="800"/>
+    </arc>
+    <arc id="A20" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Drone_Overall_Synch" target="Overall_Process_Monitoring" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="134" yCoord="705"/>
+      <arcpath arcPointType="false" id="1" xCoord="391" yCoord="804"/>
+    </arc>
+    <arc id="A21" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Request_Sensor_Status" target="Sensors_Data_Gathering" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="792" yCoord="254"/>
+      <arcpath arcPointType="false" id="1" xCoord="779" yCoord="324"/>
+    </arc>
+    <arc id="A22" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Sensors_Data_Gathering" target="Sensor_Data_Available_For_Obstacle" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="779" yCoord="334"/>
+      <arcpath arcPointType="false" id="1" xCoord="846" yCoord="437"/>
+    </arc>
+    <arc id="A23" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sensor_Data_Available_For_Obstacle" target="Sensor_Overall_Synch" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="852" yCoord="464"/>
+      <arcpath arcPointType="false" id="1" xCoord="809" yCoord="714"/>
+    </arc>
+    <arc id="A24" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Sensor_Overall_Synch" target="Overall_Process_Monitoring" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="794" yCoord="720"/>
+      <arcpath arcPointType="false" id="1" xCoord="419" yCoord="806"/>
+    </arc>
+  </net>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="CropsTreated_Accordingly" overApproximation="false" pTrie="true" query="EF deadlock" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="No Deadlock Multiple_Drones" overApproximation="false" pTrie="true" query="EF !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Deadlock_Communication" overApproximation="false" pTrie="true" query="EF !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Overall_Process_Monitoring" overApproximation="true" pTrie="true" query="EF Communication.Overall_Process_Monitoring = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="3" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Communication goal reached" overApproximation="true" pTrie="true" query="EF Communication.Overall_Process_Monitoring = 3" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true" useTarOption="false"/>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
