@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <net active="true" id="Workflow" type="P/T net">
+    <place displayName="true" id="A0" initialMarking="1" invariant="&lt; inf" name="A0" nameOffsetX="-5" nameOffsetY="35" positionX="75" positionY="255"/>
+    <place displayName="true" id="A1" initialMarking="0" invariant="&lt; inf" name="A1" nameOffsetX="-5" nameOffsetY="35" positionX="210" positionY="105"/>
+    <place displayName="true" id="A5" initialMarking="0" invariant="&lt; inf" name="A5" nameOffsetX="-5" nameOffsetY="35" positionX="465" positionY="360"/>
+    <place displayName="true" id="A6" initialMarking="0" invariant="&lt; inf" name="A6" nameOffsetX="-5" nameOffsetY="35" positionX="615" positionY="360"/>
+    <place displayName="true" id="Sync2_A6" initialMarking="0" invariant="&lt; inf" name="Sync2_A6" nameOffsetX="-5" nameOffsetY="35" positionX="720" positionY="345"/>
+    <place displayName="true" id="Deadlines" initialMarking="1" invariant="&lt; inf" name="Deadlines" nameOffsetX="-5" nameOffsetY="35" positionX="900" positionY="465"/>
+    <place displayName="true" id="A2" initialMarking="0" invariant="&lt; inf" name="A2" nameOffsetX="-5" nameOffsetY="35" positionX="450" positionY="105"/>
+    <place displayName="true" id="Sync2_A2" initialMarking="0" invariant="&lt; inf" name="Sync2_A2" nameOffsetX="-5" nameOffsetY="35" positionX="630" positionY="105"/>
+    <place displayName="true" id="A7" initialMarking="0" invariant="&lt; inf" name="A7" nameOffsetX="-5" nameOffsetY="35" positionX="765" positionY="270"/>
+    <place displayName="true" id="Work_Done" initialMarking="0" invariant="&lt; inf" name="Work_Done" nameOffsetX="-5" nameOffsetY="35" positionX="1005" positionY="270"/>
+    <place displayName="true" id="A3" initialMarking="0" invariant="&lt; inf" name="A3" nameOffsetX="-5" nameOffsetY="35" positionX="195" positionY="255"/>
+    <place displayName="true" id="A4" initialMarking="0" invariant="&lt; inf" name="A4" nameOffsetX="-5" nameOffsetY="35" positionX="180" positionY="420"/>
+    <place displayName="true" id="Sync1_A3" initialMarking="0" invariant="&lt; inf" name="Sync1_A3" nameOffsetX="-5" nameOffsetY="35" positionX="345" positionY="255"/>
+    <place displayName="true" id="Sync1_A4" initialMarking="0" invariant="&lt; inf" name="Sync1_A4" nameOffsetX="-5" nameOffsetY="35" positionX="330" positionY="420"/>
+    <transition angle="0" displayName="true" id="A0_Done" infiniteServer="false" name="A0_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="135" positionY="255" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="A1_Done" infiniteServer="false" name="A1_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="330" positionY="90" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Ai_Done" infiniteServer="false" name="Ai_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="765" positionY="480" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="A3_Done" infiniteServer="false" name="A3_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="270" positionY="255" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="A4_Done" infiniteServer="false" name="A4_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="255" positionY="420" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Sync1_Done" infiniteServer="false" name="Sync1_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="390" positionY="345" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="A5_Done" infiniteServer="false" name="A5_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="540" positionY="360" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="A6_Done" infiniteServer="false" name="A6_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="660" positionY="360" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Sync2_Done" infiniteServer="false" name="Sync2_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="690" positionY="255" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="A2_Done" infiniteServer="false" name="A2_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="540" positionY="105" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="A7_Done" infiniteServer="false" name="A7_Done" nameOffsetX="-5" nameOffsetY="35" player="0" positionX="855" positionY="285" priority="0" urgent="false"/>
+    <arc id="P0 to T0" inscription="[5,inf)" nameOffsetX="0" nameOffsetY="0" source="A0" target="A0_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="104" yCoord="273"/>
+      <arcpath arcPointType="false" id="1" xCoord="110" yCoord="275"/>
+      <arcpath arcPointType="false" id="2" xCoord="144" yCoord="270"/>
+    </arc>
+    <arc id="P10 to T5" inscription="[3,inf)" nameOffsetX="0" nameOffsetY="0" source="A5" target="A5_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="495" yCoord="375"/>
+      <arcpath arcPointType="false" id="1" xCoord="549" yCoord="375"/>
+    </arc>
+    <arc id="P11 to T6" inscription="[3,inf)" nameOffsetX="0" nameOffsetY="0" source="A6" target="A6_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="645" yCoord="375"/>
+      <arcpath arcPointType="false" id="1" xCoord="669" yCoord="375"/>
+    </arc>
+    <arc id="P12 to T7" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sync2_A6" target="Sync2_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="729" yCoord="346"/>
+      <arcpath arcPointType="false" id="1" xCoord="705" yCoord="285"/>
+    </arc>
+    <arc id="P1 to T1" inscription="[4,inf)" nameOffsetX="0" nameOffsetY="0" source="A1" target="A1_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="239" yCoord="118"/>
+      <arcpath arcPointType="false" id="1" xCoord="339" yCoord="105"/>
+    </arc>
+    <arc id="P2 to T8" inscription="[4,inf)" nameOffsetX="0" nameOffsetY="0" source="A2" target="A2_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="480" yCoord="120"/>
+      <arcpath arcPointType="false" id="1" xCoord="549" yCoord="120"/>
+    </arc>
+    <arc id="P3 to T7" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sync2_A2" target="Sync2_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="651" yCoord="133"/>
+      <arcpath arcPointType="false" id="1" xCoord="705" yCoord="255"/>
+    </arc>
+    <arc id="P4 to T9" inscription="[2,inf)" nameOffsetX="0" nameOffsetY="0" source="A7" target="A7_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="794" yCoord="287"/>
+      <arcpath arcPointType="false" id="1" xCoord="864" yCoord="300"/>
+    </arc>
+    <arc id="P6 to T2" inscription="[2,inf)" nameOffsetX="0" nameOffsetY="0" source="A3" target="A3_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="225" yCoord="270"/>
+      <arcpath arcPointType="false" id="1" xCoord="279" yCoord="270"/>
+    </arc>
+    <arc id="P7 to T3" inscription="[2,inf)" nameOffsetX="0" nameOffsetY="0" source="A4" target="A4_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="210" yCoord="435"/>
+      <arcpath arcPointType="false" id="1" xCoord="264" yCoord="435"/>
+    </arc>
+    <arc id="P8 to T4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sync1_A3" target="Sync1_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="367" yCoord="282"/>
+      <arcpath arcPointType="false" id="1" xCoord="405" yCoord="345"/>
+    </arc>
+    <arc id="P9 to T4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sync1_A4" target="Sync1_Done" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="353" yCoord="422"/>
+      <arcpath arcPointType="false" id="1" xCoord="399" yCoord="360"/>
+    </arc>
+    <arc id="T0 to P1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="A0_Done" target="A1" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="150" yCoord="255"/>
+      <arcpath arcPointType="false" id="1" xCoord="217" yCoord="133"/>
+    </arc>
+    <arc id="T0 to P6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="A0_Done" target="A3" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="154" yCoord="270"/>
+      <arcpath arcPointType="false" id="1" xCoord="155" yCoord="275"/>
+      <arcpath arcPointType="false" id="2" xCoord="195" yCoord="271"/>
+    </arc>
+    <arc id="T0 to P7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="A0_Done" target="A4" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="150" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="190" yCoord="420"/>
+    </arc>
+    <arc id="P13 to T10" inscription="[0,7]:1" nameOffsetX="0" nameOffsetY="0" source="Deadlines" target="Ai_Done" type="transport" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="909" yCoord="493"/>
+      <arcpath arcPointType="false" id="1" xCoord="885" yCoord="553"/>
+      <arcpath arcPointType="false" id="2" xCoord="784" yCoord="495"/>
+    </arc>
+    <arc id="T10 to P13" inscription="[0,7]:1" nameOffsetX="0" nameOffsetY="0" source="Ai_Done" target="Deadlines" type="transport" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="780" yCoord="480"/>
+      <arcpath arcPointType="false" id="1" xCoord="800" yCoord="455"/>
+      <arcpath arcPointType="false" id="2" xCoord="900" yCoord="476"/>
+    </arc>
+    <arc id="T1 to P2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="A1_Done" target="A2" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="349" yCoord="105"/>
+      <arcpath arcPointType="false" id="1" xCoord="450" yCoord="118"/>
+    </arc>
+    <arc id="T2 to P8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="A3_Done" target="Sync1_A3" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="289" yCoord="270"/>
+      <arcpath arcPointType="false" id="1" xCoord="345" yCoord="270"/>
+    </arc>
+    <arc id="T3 to P9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="A4_Done" target="Sync1_A4" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="274" yCoord="435"/>
+      <arcpath arcPointType="false" id="1" xCoord="330" yCoord="435"/>
+    </arc>
+    <arc id="T4 to P10" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Sync1_Done" target="A5" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="409" yCoord="360"/>
+      <arcpath arcPointType="false" id="1" xCoord="465" yCoord="371"/>
+    </arc>
+    <arc id="T5 to P11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="A5_Done" target="A6" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="559" yCoord="375"/>
+      <arcpath arcPointType="false" id="1" xCoord="615" yCoord="375"/>
+    </arc>
+    <arc id="T6 to P12" inscription="1" nameOffsetX="0" nameOffsetY="0" source="A6_Done" target="Sync2_A6" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="679" yCoord="375"/>
+      <arcpath arcPointType="false" id="1" xCoord="720" yCoord="363"/>
+    </arc>
+    <arc id="T7 to P4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Sync2_Done" target="A7" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="709" yCoord="270"/>
+      <arcpath arcPointType="false" id="1" xCoord="765" yCoord="281"/>
+    </arc>
+    <arc id="T8 to P3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="A2_Done" target="Sync2_A2" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="559" yCoord="120"/>
+      <arcpath arcPointType="false" id="1" xCoord="560" yCoord="125"/>
+      <arcpath arcPointType="false" id="2" xCoord="630" yCoord="120"/>
+    </arc>
+    <arc id="T9 to P5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="A7_Done" target="Work_Done" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="874" yCoord="300"/>
+      <arcpath arcPointType="false" id="1" xCoord="1005" yCoord="286"/>
+    </arc>
+  </net>
+  <query active="true" approximationDenominator="2" capacity="2" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="true" hashTableSize="null" inclusionPlaces="*NONE*" name="Check Workflow" overApproximation="true" pTrie="true" query="EF Workflow.Work_Done = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
